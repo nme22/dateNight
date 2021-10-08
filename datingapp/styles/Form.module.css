@@ -13,6 +13,9 @@
 .form-date {
 }  
 
+.form-date input {
+    
+}
 .form-date input:focus {
     border: 3px solid #555;
 }

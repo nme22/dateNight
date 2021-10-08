@@ -11,17 +11,17 @@ const FormDate = () => {
                 <label>Who:</label>
                 <input id="name" type="text" autoComplete="name" required />
                 
-
+                
                 <label>What:</label>
-                <input  id="name" type="text" autoComplete="name" required />
+                <input  id="what" type="text" autoComplete="name" required />
                 
 
                 <label>Where:</label>
-                <input id="name" type="text" autoComplete="name" required />
+                <input id="where" type="text" autoComplete="name" required />
                 
                 
                 <label>When:</label>
-                <input id="name" type="text" autoComplete="name" required />
+                <input id="when" type="text" autoComplete="name" required />
                 
 
                 <label>Notes:</label>

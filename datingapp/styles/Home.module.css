@@ -5,7 +5,8 @@
 }
 
 .text {
-  color:#777;
+  color:black;
+  font-weight: 100%;
 }
 
 .btn {
@@ -13,7 +14,7 @@
   width: 150px;
   padding: 8px 0;
   margin: 20px auto;
-  background: #4979ff;
+  background: palevioletred;
   border-radius: 4px;
   color: white;
   text-align: center;
