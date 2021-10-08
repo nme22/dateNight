@@ -11,8 +11,6 @@
   }
 
 .form-date {
-    display: flex;
-    justify-self: right;
 }  
 
 .form-date input:focus {
