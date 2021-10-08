@@ -15,7 +15,11 @@ a {
   max-width: 960px;
   margin: 0 auto;
 }
-
+img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
 nav {
   margin: 10px auto 80px;
   padding: 10px 0;
@@ -40,4 +44,12 @@ footer {
   margin-top: 60px;
   color: palevioletred;
   border-top: 1px solid #eaeaea;
+}
+.not-found {
+  text-align: center;
+}
+
+.not-found a{
+  color: #4979ff;
+  text-decoration: underline;
 }

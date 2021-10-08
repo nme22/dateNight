@@ -4,7 +4,7 @@ const Navbar = () => {
     return ( 
         <nav>
             <div className='logo'>
-                <h1>DateNight</h1>
+                <img src="/datingIMG.png"/>
             </div>
             <Link href="/"><a>Home</a></Link>
             <Link href="/About"><a>About</a></Link>
