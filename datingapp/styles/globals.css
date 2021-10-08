@@ -15,11 +15,20 @@ a {
   max-width: 960px;
   margin: 0 auto;
 }
+
+.form-date {
+  display: flex;
+  justify-content: center;
+}
+
+
 img {
   height: 80px;
   width: 80px;
   border-radius: 50%;
 }
+
+
 nav {
   margin: 10px auto 80px;
   padding: 10px 0;

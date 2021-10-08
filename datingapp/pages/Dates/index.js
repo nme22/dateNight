@@ -1,4 +1,5 @@
 import styles from '../../styles/Dates.module.css'
+import Link from 'next/link'
 
 export const getStaticProps = async () => {
 
@@ -15,11 +16,11 @@ const getDates = ({ dates }) => {
         <div>
             <h1> All Dates</h1>
             {dates.map(dates => (
-                <div key={dates.id}>
+                <Link href={'/Dates/' + dates.id} key={dates.id}>
                     <a className={styles.single}>
                         <h3>{ dates.name }</h3>
                     </a>
-                </div>
+                </Link>
             ))}
         </div>
      );
