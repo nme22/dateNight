@@ -1,27 +1,24 @@
 .btn {
-    display: flex;
-    width: 150px;
-    padding: 10px 0;
-    margin: 20px auto;
-    background: palevioletred;
-    border-radius: 4px;
-    color: white;
-    text-align: right;
-  
-  }
-
-
+  display: flex;
+  width: 150px;
+  padding: 10px 0;
+  margin: 20px auto;
+  background: palevioletred;
+  border-radius: 4px;
+  color: white;
+  text-align: right;
+}
 
 .form {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .form-field input:focus {
-    border: 3px solid #555;
+  border: 3px solid #555;
 }
 
 .form-field-textarea {
-    margin: 0px;
-    height: 217px;
-    width: 651px;
+  margin: 0px;
+  height: 217px;
+  width: 651px;
 }

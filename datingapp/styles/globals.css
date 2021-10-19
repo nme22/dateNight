@@ -3,11 +3,11 @@
 body {
   background: lightgrey;
   color: black;
-  font-family: "Nunito";
+  font-family: 'Nunito';
 }
 
 a {
-  color:palevioletred;
+  color: palevioletred;
   text-decoration: none;
 }
 
@@ -21,13 +21,11 @@ a {
   justify-content: center;
 }
 
-
 img {
   height: 80px;
   width: 80px;
   border-radius: 50%;
 }
-
 
 nav {
   margin: 10px auto 80px;
@@ -58,10 +56,7 @@ footer {
   text-align: center;
 }
 
-.not-found a{
+.not-found a {
   color: #4979ff;
   text-decoration: underline;
 }
-
-
-  
