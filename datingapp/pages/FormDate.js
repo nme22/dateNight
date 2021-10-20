@@ -1,12 +1,14 @@
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
 import Link from 'next/link';
 import styles from '../styles/Form.module.css';
 import {
   FormControl,
   FormLabel,
-  Text,
   Input,
   VStack,
   Heading,
+  Textarea,
 } from '@chakra-ui/react';
 
 const FormDate = () => {
@@ -15,7 +17,7 @@ const FormDate = () => {
       <div className="form">
         <Heading alignSelf="center"> Create Your Date! </Heading>
         <FormControl colSpan={2}>
-          <Text>Who are you going with:</Text>
+          <FormLabel>Who are you going with:</FormLabel>
           <Input
             type="text"
             autoComplete="name"
@@ -23,26 +25,24 @@ const FormDate = () => {
             placeholder="Name of person invited"
           />
 
-          <Text>Contact Number:</Text>
+          <FormLabel>Contact Number:</FormLabel>
           <Input type="text" required placeholder="Name of person invited" />
 
-          <Text>What are we doing?</Text>
+          <FormLabel>What we're doing:</FormLabel>
           <Input type="text" required placeholder="What we're doing" />
 
-          <Text>Where we going?</Text>
+          <FormLabel>Where we're going:</FormLabel>
           <Input type="text" required placeholder="Location" />
 
-          <label>When:</label>
-          <p className="form-field">
-            <input
-              id="dateWhen"
-              type="text"
-              required
-              placeholder="When is this?"
-            />
-          </p>
+          <FormLabel>When we're doing this:</FormLabel>
+          <Input type="datetime-local" />
+          {/* <DatePicker
+            selected={''}
+            type="datetime-local"
+            onChange={(date) => setStartDate(date)}
+          /> */}
 
-          <label>Go again?:</label>
+          <FormLabel>Would you go on this date again?</FormLabel>
           <select
             id="repeat"
             type="boolean"
@@ -54,13 +54,11 @@ const FormDate = () => {
           </select>
         </FormControl>
 
-        <label>Notes:</label>
-        <textarea
-          className="form-field-textarea"
-          id="note"
+        <FormLabel>Notes:</FormLabel>
+        <Textarea
           type="text"
           placeholder="Noteable things that happened during the date"
-        ></textarea>
+        ></Textarea>
 
         <Link href="/Previous Dates">
           <button className={styles.btn}>
