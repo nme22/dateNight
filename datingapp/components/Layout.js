@@ -1,13 +1,14 @@
 import DateNavbar from './Navbar';
 import Footer from './Footer';
+import { VStack } from '@chakra-ui/react';
 
 const Layout = ({ children }) => {
   return (
-    <div className="content">
+    <VStack>
       <DateNavbar />
       {children}
       <Footer />
-    </div>
+    </VStack>
   );
 };
 

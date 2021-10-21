@@ -6,12 +6,13 @@ import { VStack, Heading, Text } from '@chakra-ui/react';
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>DateNight | Home</title>
-        <meta name="keywords" content="DateNight" />
-      </Head>
       <VStack>
-        <Heading color="palevioletred" pb="20" textAlign="center">
+        <Head>
+          <title>DateNight | Home</title>
+          <meta name="keywords" content="DateNight" />
+        </Head>
+
+        <Heading color="" pb="20" textAlign="center">
           "Where Moments Become Memories"{' '}
         </Heading>
         <Text>

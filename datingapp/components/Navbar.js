@@ -1,25 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  Icon,
   HStack,
   Button,
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { Styles } from '@chakra-ui/react';
 
 const DateNavbar = () => {
   const { toggleColorMode } = useColorMode();
-  const bgColor = useColorModeValue('gray.50', 'whitealpha.50');
+  const bgColor = useColorModeValue('gray.500', 'whitealpha.50');
   return (
-    <HStack
-      w="full"
-      h={50}
-      p={4}
-      spacing={6}
-      justifyContent="space-around"
-      bg={bgColor}
-    >
+    <HStack w="full" h={50} p={4} spacing={6} justifyContent="space-around">
       <Button onClick={toggleColorMode} h="300%" w="80px" borderradius="35%">
         <Image
           src="/datingIMG.png"
