@@ -1,14 +1,14 @@
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import DateNavbar from './Navbar';
+import Footer from './Footer';
 
 const Layout = ({ children }) => {
-    return ( 
-        <div className='content'>
-            <Navbar />
-            { children }
-            <Footer />
-        </div>
-     );
-}
- 
+  return (
+    <div className="content">
+      <DateNavbar />
+      {children}
+      <Footer />
+    </div>
+  );
+};
+
 export default Layout;

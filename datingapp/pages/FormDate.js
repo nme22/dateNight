@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import styles from '../styles/Form.module.css';
 import {
   Button,
   Divider,
@@ -15,13 +14,18 @@ import {
 const FormDate = () => {
   return (
     <VStack py={2}>
-      <Heading size="2xl"> Create Your Date! </Heading>
+      <Heading size="2xl" color="">
+        {' '}
+        Create Your Date!{' '}
+      </Heading>
       <Divider />
       <div>
         <FormControl>
           <FormLabel>Who are you going with:</FormLabel>
           <Input
-            focusBorderColor="Pink"
+            _focus={{
+              borderColor: 'Pink',
+            }}
             type="text"
             autoComplete="name"
             required
@@ -30,7 +34,9 @@ const FormDate = () => {
 
           <FormLabel>Contact Number:</FormLabel>
           <Input
-            focusBorderColor="Pink"
+            _focus={{
+              borderColor: 'Pink',
+            }}
             type="text"
             required
             placeholder="Name of person invited"
@@ -38,7 +44,9 @@ const FormDate = () => {
 
           <FormLabel>What we're doing:</FormLabel>
           <Input
-            focusBorderColor="Pink"
+            _focus={{
+              borderColor: 'Pink',
+            }}
             type="text"
             required
             placeholder="What we're doing"
@@ -46,18 +54,27 @@ const FormDate = () => {
 
           <FormLabel>Where we're going:</FormLabel>
           <Input
-            focusBorderColor="Pink"
+            _focus={{
+              borderColor: 'Pink',
+            }}
             type="text"
             required
             placeholder="Location"
           />
 
           <FormLabel>When we're doing this:</FormLabel>
-          <Input focusBorderColor="Pink" type="datetime-local" />
+          <Input
+            _focus={{
+              borderColor: 'Pink',
+            }}
+            type="datetime-local"
+          />
 
           <FormLabel>Would you go on this date again?</FormLabel>
           <Select
-            focusBorderColor="Pink"
+            _focus={{
+              borderColor: 'Pink',
+            }}
             type="boolean"
             required
             placeholder="Again?"
@@ -70,21 +87,23 @@ const FormDate = () => {
 
         <FormLabel>Notes:</FormLabel>
         <Textarea
-          focusBorderColor="Pink"
+          _focus={{
+            borderColor: 'Pink',
+          }}
           type="text"
           placeholder="Noteable things that happened during the date"
         ></Textarea>
 
         <Link href="/Previous Dates">
           <Button
-            display="flex"
-            w={150}
-            p={2}
-            m={2}
+            d="block"
+            width="150px"
+            p="8px"
+            m="20px"
             bg="palevioletred"
+            borderradius="4px"
             color="white"
-            textAlign="right"
-            borderRadius={4}
+            text-align="center"
           >
             Create Your Date!
           </Button>
