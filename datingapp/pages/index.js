@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import styles from '../styles/Home.module.css';
 import { VStack, Heading, Text, Button } from '@chakra-ui/react';
 
 export default function Home() {
