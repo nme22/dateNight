@@ -6,7 +6,6 @@ import {
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Styles } from '@chakra-ui/react';
 
 const DateNavbar = () => {
   const { toggleColorMode } = useColorMode();
