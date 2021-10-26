@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Head from 'next/head';
 import {
   Button,
   Divider,
@@ -33,6 +34,10 @@ const FormDate = () => {
 
   return (
     <VStack py={2} fontFamily="Nunito">
+      <Head>
+        <title>DateNight | Create a Date</title>
+        <meta name="keywords" content="DateNight" />
+      </Head>
       <Heading size="2xl" color="palevioletred" fontFamily="Nunito">
         {' '}
         Create Your Date!{' '}

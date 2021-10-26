@@ -1,5 +1,6 @@
 import styles from '../../styles/Dates.module.css';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export const getStaticProps = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -13,6 +14,10 @@ export const getStaticProps = async () => {
 const getDates = ({ dates }) => {
   return (
     <div>
+      <Head>
+        <title>DateNight | Previous Dates</title>
+        <meta name="keywords" content="DateNight" />
+      </Head>
       <h1> All Dates</h1>
       {dates.map((dates) => (
         <Link href={'/Dates/' + dates.id} key={dates.id}>
