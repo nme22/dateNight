@@ -1,6 +1,6 @@
 .single {
   padding: 2px 16px;
-  background: #fff;
+  background: lightgray;
   display: block;
   margin: 20px 10px;
   border-left: 8px solid #fff;
@@ -8,4 +8,7 @@
 
 .single:hover {
   border-left: 8px solid palevioletred;
+}
+.h3 {
+  color: palevioletred;
 }

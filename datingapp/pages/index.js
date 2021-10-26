@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
-import { VStack, Heading, Text } from '@chakra-ui/react';
+import { VStack, Heading, Text, Divider } from '@chakra-ui/react';
 
 export default function Home() {
   return (
@@ -12,13 +12,19 @@ export default function Home() {
           <meta name="keywords" content="DateNight" />
         </Head>
 
-        <Heading color="" pb="20" textAlign="center">
+        <Heading
+          textColor="palevioletred"
+          pb="20"
+          textAlign="center"
+          fontFamily="Nunito"
+        >
           "Where Moments Become Memories"{' '}
         </Heading>
-        <Text>
+        <Text fontFamily="Nunito" pb="20">
           Don't Pencilvester your memories; remember the barbaque. Plan out your
           dates, send an invitation, and record your experience!{' '}
         </Text>
+
         <Link href="/About">
           <a className={styles.btn}>About DateNight</a>
         </Link>

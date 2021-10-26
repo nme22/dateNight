@@ -19,6 +19,7 @@ const DateNavbar = () => {
           height="70px"
           width="70px"
           borderradius="50%"
+          bgColor={bgColor}
         />
       </Button>
 
