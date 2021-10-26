@@ -1,39 +1,106 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import {
-  HStack,
-  Button,
-  useColorMode,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { HStack, Button, useColorMode } from '@chakra-ui/react';
 
 const DateNavbar = () => {
   const { toggleColorMode } = useColorMode();
-  const bgColor = useColorModeValue('gray.500', 'whitealpha.50');
+
   return (
-    <HStack w="full" h={50} p={4} spacing={6} justifyContent="space-around">
-      <Button onClick={toggleColorMode} h="300%" w="80px" borderradius="35%">
+    <HStack
+      w="full"
+      h={50}
+      p={4}
+      spacing={6}
+      justifyContent="space-around"
+      fontFamily="Nunito"
+      textColor="palevioletred"
+    >
+      <Button
+        onClick={toggleColorMode}
+        h="300%"
+        w="80px"
+        borderradius="35%"
+        bg="palevioletred"
+        _hover={{
+          bg: 'turquoise',
+        }}
+      >
         <Image
           src="/datingIMG.png"
           alt="Heart"
           height="70px"
           width="70px"
           borderradius="50%"
-          bgColor={bgColor}
         />
       </Button>
 
       <Link href="/">
-        <a>Home</a>
+        <Button
+          d="block"
+          w="150px"
+          p="8px"
+          m="30px"
+          bg="palevioletred"
+          borderradius="4px"
+          color="white"
+          text-align="center"
+          _hover={{
+            bg: 'turquoise',
+          }}
+        >
+          Home
+        </Button>
       </Link>
       <Link href="/About">
-        <a>About</a>
+        <Button
+          d="block"
+          w="150px"
+          p="8px"
+          m="30px"
+          bg="palevioletred"
+          borderradius="4px"
+          color="white"
+          text-align="center"
+          _hover={{
+            bg: 'turquoise',
+          }}
+        >
+          About
+        </Button>
       </Link>
       <Link href="/FormDate">
-        <a>Create A Date</a>
+        <Button
+          d="block"
+          w="150px"
+          p="8px"
+          m="30px"
+          bg="palevioletred"
+          borderradius="4px"
+          color="white"
+          text-align="center"
+          _hover={{
+            bg: 'turquoise',
+          }}
+        >
+          Create a Date
+        </Button>
       </Link>
       <Link href="/Dates">
-        <a>Previous Dates</a>
+        <Button
+          d="block"
+          w="150px"
+          p="8px"
+          m="30px"
+          bg="palevioletred"
+          borderradius="4px"
+          color="white"
+          text-align="center"
+          _hover={{
+            bg: 'turquoise',
+          }}
+        >
+          Previous Dates
+        </Button>
       </Link>
     </HStack>
   );

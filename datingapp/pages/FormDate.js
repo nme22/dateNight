@@ -33,7 +33,7 @@ const FormDate = () => {
 
   return (
     <VStack py={2} fontFamily="Nunito">
-      <Heading size="2xl" color="palevioletred">
+      <Heading size="2xl" color="palevioletred" fontFamily="Nunito">
         {' '}
         Create Your Date!{' '}
       </Heading>
@@ -148,7 +148,7 @@ const FormDate = () => {
             d="block"
             w="150px"
             p="8px"
-            m="20px"
+            m="30px"
             bg="palevioletred"
             borderradius="4px"
             color="white"
