@@ -32,15 +32,17 @@ const FormDate = () => {
   }
 
   return (
-    <VStack py={2}>
-      <Heading size="2xl" color="Pink">
+    <VStack py={2} fontFamily="Nunito">
+      <Heading size="2xl" color="palevioletred">
         {' '}
         Create Your Date!{' '}
       </Heading>
       <Divider />
       <div>
         <FormControl>
-          <FormLabel>Name:</FormLabel>
+          <FormLabel color="palevioletred" fontWeight="bold">
+            Name:
+          </FormLabel>
           <Input
             _focus={{
               borderColor: 'Pink',
@@ -51,9 +53,12 @@ const FormDate = () => {
             placeholder="Name of person invited"
             value={name}
             onChange={handleNameChange}
+            fontWeight="bold"
           />
 
-          <FormLabel>Contact Number:</FormLabel>
+          <FormLabel color="palevioletred" fontWeight="bold">
+            Contact Number:
+          </FormLabel>
           <Input
             _focus={{
               borderColor: 'Pink',
@@ -63,21 +68,27 @@ const FormDate = () => {
             placeholder="Name of person invited"
             value={phoneNumber}
             onChange={handlePhoneNumberChange}
+            fontWeight="bold"
           />
 
-          <FormLabel>What activity are we doing?:</FormLabel>
+          <FormLabel color="palevioletred" fontWeight="bold">
+            What activity are we doing?:
+          </FormLabel>
           <Select
             _focus={{
               borderColor: 'Pink',
             }}
             required
             textAlign="center"
+            fontWeight="bold"
           >
             <option value="Food">Food</option>
             <option value="Entertainment">Entertainment</option>
           </Select>
 
-          <FormLabel>Where we're going:</FormLabel>
+          <FormLabel color="palevioletred" fontWeight="bold">
+            Where we're going:
+          </FormLabel>
           <Input
             _focus={{
               borderColor: 'Pink',
@@ -87,9 +98,12 @@ const FormDate = () => {
             placeholder="Location"
             value={location}
             onChange={handleLocationChange}
+            fontWeight="bold"
           />
 
-          <FormLabel>When we're doing this:</FormLabel>
+          <FormLabel color="palevioletred" fontWeight="bold">
+            When we're doing this:
+          </FormLabel>
           <Input
             _focus={{
               borderColor: 'Pink',
@@ -97,9 +111,12 @@ const FormDate = () => {
             type="datetime-local"
             value={when}
             onChange={handleWhenChange}
+            fontWeight="bold"
           />
 
-          <FormLabel>Would you go on this date again?</FormLabel>
+          <FormLabel color="palevioletred" fontWeight="bold">
+            Would you go on this date again?
+          </FormLabel>
           <Select
             _focus={{
               borderColor: 'Pink',
@@ -107,28 +124,32 @@ const FormDate = () => {
             type="boolean"
             required
             textAlign="center"
+            fontWeight="bold"
           >
             <option value="Yes">Yes</option>
             <option value="No">No Shot</option>
           </Select>
         </FormControl>
 
-        <FormLabel>Notes:</FormLabel>
+        <FormLabel color="palevioletred" fontWeight="bold">
+          Notes:
+        </FormLabel>
         <Textarea
           _focus={{
             borderColor: 'Pink',
           }}
           type="text"
           placeholder="Noteable things that happened during the date"
+          fontWeight="bold"
         ></Textarea>
 
         <Link href="/Previous Dates">
           <Button
             d="block"
-            width="150px"
+            w="150px"
             p="8px"
             m="20px"
-            bg="pink"
+            bg="palevioletred"
             borderradius="4px"
             color="white"
             text-align="center"
