@@ -19,7 +19,7 @@ const getDates = ({ dates }) => {
         <title>DateNight | Previous Dates</title>
         <meta name="keywords" content="DateNight" />
       </Head>
-      <Heading fontFamily="Nunito" fontWeight="bold" color="gray.500">
+      <Heading fontFamily="Nunito" color="gray.500">
         All Dates
       </Heading>
       <Divider />

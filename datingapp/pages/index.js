@@ -20,7 +20,7 @@ export default function Home() {
         >
           "Where Moments Become Memories"{' '}
         </Heading>
-        <Text fontFamily="Nunito" pb="20" fontWeight="bold">
+        <Text fontFamily="Nunito" pb="20" fontSize="2xl">
           Don't Pencilvester your memories; remember the barbaque. Plan out your
           dates, send an invitation, and record your experience!{' '}
         </Text>
