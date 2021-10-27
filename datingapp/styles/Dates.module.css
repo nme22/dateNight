@@ -1,13 +1,14 @@
 .single {
   padding: 2px 16px;
-  background: lightgray;
+  background: palevioletred;
   display: block;
   margin: 20px 10px;
   border-left: 8px solid #fff;
+  border-radius: 20px;
 }
 
 .single:hover {
-  border-left: 8px solid palevioletred;
+  border-left: 8px solid turquoise;
 }
 .h3 {
   color: palevioletred;

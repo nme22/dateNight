@@ -1,6 +1,7 @@
 import styles from '../../styles/Dates.module.css';
 import Link from 'next/link';
 import Head from 'next/head';
+import { Heading, Divider, VStack } from '@chakra-ui/react';
 
 export const getStaticProps = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -18,7 +19,10 @@ const getDates = ({ dates }) => {
         <title>DateNight | Previous Dates</title>
         <meta name="keywords" content="DateNight" />
       </Head>
-      <h1> All Dates</h1>
+      <Heading fontFamily="Nunito" fontWeight="bold" color="gray.500">
+        All Dates
+      </Heading>
+      <Divider />
       {dates.map((dates) => (
         <Link href={'/Dates/' + dates.id} key={dates.id}>
           <a className={styles.single}>
