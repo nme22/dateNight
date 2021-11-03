@@ -11,13 +11,15 @@ import {
   Textarea,
   Select,
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const FormDate = () => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [location, setLocation] = useState('');
   const [when, setWhen] = useState('');
+  const [what, setWhat] = useState('');
+  //   const URL = `https://api.yelp.com/v3/businesses/search?term=${what}&location=${location}`;
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -31,6 +33,20 @@ const FormDate = () => {
   function handleWhenChange(e) {
     setWhen(e.target.value);
   }
+  function handleWhatChange(e) {
+    setWhat(e.target.value);
+    console.log({ what });
+  }
+  //   function yelpDataRequest(location, what) {
+  //     await fetch(URL, {
+  //       method: 'GET',
+  //       mode: 'cors',
+  //       headers: {
+  //         Authorization: `Bearer ${process.env.YELP_API_TOKEN}`,
+  //         content: `application/json`,
+  //       },
+  //     });
+  //   }
 
   return (
     <VStack py={2} fontFamily="Nunito">
@@ -60,7 +76,6 @@ const FormDate = () => {
             onChange={handleNameChange}
             fontWeight="bold"
           />
-
           <FormLabel color="palevioletred" fontWeight="bold">
             Contact Number:
           </FormLabel>
@@ -70,12 +85,11 @@ const FormDate = () => {
             }}
             type="text"
             required
-            placeholder="Name of person invited"
+            placeholder="Phone number of person invited"
             value={phoneNumber}
             onChange={handlePhoneNumberChange}
             fontWeight="bold"
           />
-
           <FormLabel color="palevioletred" fontWeight="bold">
             What activity are we doing?:
           </FormLabel>
@@ -86,11 +100,14 @@ const FormDate = () => {
             required
             textAlign="center"
             fontWeight="bold"
+            onChange={handleWhatChange}
+            value={what}
           >
             <option value="Food">Food</option>
             <option value="Entertainment">Entertainment</option>
+            <option value="Romance">Romance</option>
           </Select>
-
+          console.log({what})
           <FormLabel color="palevioletred" fontWeight="bold">
             Where we're going:
           </FormLabel>
@@ -105,7 +122,6 @@ const FormDate = () => {
             onChange={handleLocationChange}
             fontWeight="bold"
           />
-
           <FormLabel color="palevioletred" fontWeight="bold">
             When we're doing this:
           </FormLabel>
@@ -118,7 +134,6 @@ const FormDate = () => {
             onChange={handleWhenChange}
             fontWeight="bold"
           />
-
           <FormLabel color="palevioletred" fontWeight="bold">
             Would you go on this date again?
           </FormLabel>
