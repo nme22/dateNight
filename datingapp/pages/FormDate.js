@@ -10,8 +10,11 @@ import {
   Heading,
   Textarea,
   Select,
+  List,
+  ListItem,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+import yelpData from './api/yelp';
 
 const FormDate = () => {
   const [name, setName] = useState('');
@@ -19,7 +22,7 @@ const FormDate = () => {
   const [location, setLocation] = useState('');
   const [when, setWhen] = useState('');
   const [what, setWhat] = useState('');
-  //   const URL = `https://api.yelp.com/v3/businesses/search?term=${what}&location=${location}`;
+  const URL = `https://api.yelp.com/v3/businesses/search?term=${what}&location=${location}`;
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -35,18 +38,7 @@ const FormDate = () => {
   }
   function handleWhatChange(e) {
     setWhat(e.target.value);
-    console.log({ what });
   }
-  //   function yelpDataRequest(location, what) {
-  //     await fetch(URL, {
-  //       method: 'GET',
-  //       mode: 'cors',
-  //       headers: {
-  //         Authorization: `Bearer ${process.env.YELP_API_TOKEN}`,
-  //         content: `application/json`,
-  //       },
-  //     });
-  //   }
 
   return (
     <VStack py={2} fontFamily="Nunito">
@@ -61,6 +53,59 @@ const FormDate = () => {
       <Divider />
       <div>
         <FormControl>
+          <FormLabel color="palevioletred" fontWeight="bold">
+            What activity are we doing?:
+          </FormLabel>
+          <Select
+            _focus={{
+              borderColor: 'Pink',
+            }}
+            required
+            textAlign="center"
+            fontWeight="bold"
+            onChange={handleWhatChange}
+            value={what}
+          >
+            <option value="Food">Food</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Romance">Romance</option>
+          </Select>
+
+          <FormLabel color="palevioletred" fontWeight="bold">
+            Where we're going:
+          </FormLabel>
+          <Input
+            _focus={{
+              borderColor: 'Pink',
+            }}
+            type="text"
+            required
+            placeholder="Location"
+            value={location}
+            onChange={handleLocationChange}
+            fontWeight="bold"
+          />
+          <FormLabel color="palevioletred" fontWeight="bold">
+            Potential date ideas:
+          </FormLabel>
+          <Button
+            d="block"
+            w="150px"
+            p="8px"
+            m="30px"
+            bg="palevioletred"
+            borderradius="4px"
+            color="white"
+            text-align="center"
+            _hover={{
+              bg: 'turquoise',
+            }}
+            onClick={yelpData}
+          >
+            See whats around!
+          </Button>
+
+          <Divider />
           <FormLabel color="palevioletred" fontWeight="bold">
             Name:
           </FormLabel>
@@ -90,38 +135,7 @@ const FormDate = () => {
             onChange={handlePhoneNumberChange}
             fontWeight="bold"
           />
-          <FormLabel color="palevioletred" fontWeight="bold">
-            What activity are we doing?:
-          </FormLabel>
-          <Select
-            _focus={{
-              borderColor: 'Pink',
-            }}
-            required
-            textAlign="center"
-            fontWeight="bold"
-            onChange={handleWhatChange}
-            value={what}
-          >
-            <option value="Food">Food</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Romance">Romance</option>
-          </Select>
-          console.log({what})
-          <FormLabel color="palevioletred" fontWeight="bold">
-            Where we're going:
-          </FormLabel>
-          <Input
-            _focus={{
-              borderColor: 'Pink',
-            }}
-            type="text"
-            required
-            placeholder="Location"
-            value={location}
-            onChange={handleLocationChange}
-            fontWeight="bold"
-          />
+
           <FormLabel color="palevioletred" fontWeight="bold">
             When we're doing this:
           </FormLabel>
@@ -173,6 +187,9 @@ const FormDate = () => {
             borderradius="4px"
             color="white"
             text-align="center"
+            _hover={{
+              bg: 'turquoise',
+            }}
           >
             Create Your Date!
           </Button>
