@@ -22,7 +22,18 @@ const FormDate = () => {
   const [location, setLocation] = useState('');
   const [when, setWhen] = useState('');
   const [what, setWhat] = useState('');
-  const URL = `https://api.yelp.com/v3/businesses/search?term=${what}&location=${location}`;
+
+  let handleInputChange = (e) => {
+    let inputValue = e.target.value;
+    setValue(inputValue);
+  };
+
+  function handleLocationChange(e) {
+    setLocation(e.target.value);
+  }
+  function handleWhatChange(e) {
+    setWhat(e.target.value);
+  }
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -30,14 +41,9 @@ const FormDate = () => {
   function handlePhoneNumberChange(e) {
     setPhoneNumber(e.target.value);
   }
-  function handleLocationChange(e) {
-    setLocation(e.target.value);
-  }
+
   function handleWhenChange(e) {
     setWhen(e.target.value);
-  }
-  function handleWhatChange(e) {
-    setWhat(e.target.value);
   }
 
   return (

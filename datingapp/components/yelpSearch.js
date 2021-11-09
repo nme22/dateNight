@@ -1,91 +1,34 @@
-import {
-  Textarea,
-  FormControl,
-  Select,
-  FormLabel,
-  Button,
-  Text,
-} from '@chakra-ui/react';
-export default function PostYelpData() {
-  /// Set Data to equal the response from the Yelp Fetchcall
-  let yelpData = await fetch(
-    `https://api.yelp.com/v3/businesses/search?term=${what}&location=${location}`
-  );
-  const [location, setLocation] = useState('');
-  const [what, setWhat] = useState('');
+import { Textarea, List } from '@chakra-ui/react';
+import React from 'react';
 
-  function handleLocationChange(e) {
-    setLocation(e.target.value);
-  }
-  function handleWhatChange(e) {
-    setWhat(e.target.value);
-  }
+import { useEffect, useState } from 'react';
+
+export default function Yelpfetch() {
+  /// Set yelpData to equal the response from the Yelp Fetchcall
+  const [yelpData, setYelpData] = useState(null);
+  useEffect(() => {
+    fetch(
+      `https://api.yelp.com/v3/businesses/search?term=${what}&location=${location}`
+    ).then((response) => response.json());
+    // 4. Setting *yelpData* to the image url that we received from the response above
+    console.log(response);
+    //   .then((data) => setYelpData(data.message));
+  }, []);
 
   let handleInputChange = (e) => {
     let inputValue = e.target.value;
     setValue(inputValue);
   };
+
   return (
-    <FormControl>
-      <FormLabel color="palevioletred" fontWeight="bold">
-        What activity are we doing?:
-      </FormLabel>
-      <Select
-        _focus={{
-          borderColor: 'Pink',
-        }}
-        required
-        textAlign="center"
-        fontWeight="bold"
-        onChange={handleWhatChange}
-        value={what}
-      >
-        <option value="Food">Food</option>
-        <option value="Entertainment">Entertainment</option>
-        <option value="Romance">Romance</option>
-      </Select>
-
-      <FormLabel color="palevioletred" fontWeight="bold">
-        Where we're going:
-      </FormLabel>
-      <Input
-        _focus={{
-          borderColor: 'Pink',
-        }}
-        type="text"
-        required
-        placeholder="Location"
-        value={location}
-        onChange={handleLocationChange}
-        fontWeight="bold"
-      />
-      <FormLabel color="palevioletred" fontWeight="bold">
-        Potential date ideas:
-      </FormLabel>
-      <Button
-        d="block"
-        w="150px"
-        p="8px"
-        m="30px"
-        bg="palevioletred"
-        borderradius="4px"
-        color="white"
-        text-align="center"
-        _hover={{
-          bg: 'turquoise',
-        }}
-        onClick={yelpData}
-      >
-        See whats around!
-      </Button>
-
-      <Text mb="8px">Value: {value}</Text>
+    <div>
       <Textarea
-        value={value}
         onChange={handleInputChange}
-        placeholder="Here is a sample placeholder"
+        placeholder="Potential ideas will show up here"
         size="sm"
-      />
-    </FormControl>
+      >
+        <List>Dates</List>
+      </Textarea>
+    </div>
   );
 }
