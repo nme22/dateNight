@@ -14,19 +14,25 @@ import {
   ListItem,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import yelpData from './api/yelp';
+import Yelpfetch from '../components/yelpSearch';
 
 const FormDate = () => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [location, setLocation] = useState('');
   const [when, setWhen] = useState('');
-  const [what, setWhat] = useState('');
+  const [what, setWhat] = useState('Food');
 
-  let handleInputChange = (e) => {
-    let inputValue = e.target.value;
-    setValue(inputValue);
-  };
+  const [yelpData, setYelpData] = useState();
+
+  function handleSearchWhat() {
+    fetch('/api/events', {
+      method: 'POST',
+      body: JSON.stringify({ what, location }),
+    })
+      .then((response) => response.json())
+      .then((data) => setYelpData(data));
+  }
 
   function handleLocationChange(e) {
     setLocation(e.target.value);
@@ -91,9 +97,6 @@ const FormDate = () => {
             onChange={handleLocationChange}
             fontWeight="bold"
           />
-          <FormLabel color="palevioletred" fontWeight="bold">
-            Potential date ideas:
-          </FormLabel>
           <Button
             d="block"
             w="150px"
@@ -106,10 +109,17 @@ const FormDate = () => {
             _hover={{
               bg: 'turquoise',
             }}
-            onClick={yelpData}
+            onClick={handleSearchWhat}
           >
             See whats around!
           </Button>
+          {yelpData ? (
+            <Select>
+              {yelpData.data.businesses.map((business) => (
+                <option>{business.alias}</option>
+              ))}
+            </Select>
+          ) : null}
 
           <Divider />
           <FormLabel color="palevioletred" fontWeight="bold">

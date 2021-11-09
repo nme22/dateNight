@@ -7,11 +7,13 @@ const About = () => {
         <title>DateNight | About</title>
         <meta name="keywords" content="DateNight" />
       </Head>
+
       <VStack justifyContent="center" fontFamily="Nunito" fontSize="2xl">
         <Heading p="20px" color="palevioletred">
           About
         </Heading>
-        <Text color="black">
+
+        <Text color="palevioletred" alignContent="center">
           This application is designed to help the user keep track of their
           romantic endevours by creating a personal dating profile to help you
           remember your romantic progress! This application uses the Yelp API to
