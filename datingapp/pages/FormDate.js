@@ -10,11 +10,8 @@ import {
   Heading,
   Textarea,
   Select,
-  List,
-  ListItem,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import Yelpfetch from '../components/yelpSearch';
 
 const FormDate = () => {
   const [name, setName] = useState('');

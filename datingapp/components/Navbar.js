@@ -20,7 +20,7 @@ const DateNavbar = () => {
         h="300%"
         w="80px"
         borderradius="35%"
-        bg="palevioletred"
+        bg="white"
         _hover={{
           bg: 'turquoise',
         }}
