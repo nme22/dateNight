@@ -39,72 +39,80 @@ const DateNavbar = () => {
       </Button>
 
       <Link href="/">
-        <Button
-          d="block"
-          w="150px"
-          p="8px"
-          m="30px"
-          bg="palevioletred"
-          borderradius="4px"
-          color="white"
-          text-align="center"
-          _hover={{
-            bg: 'turquoise',
-          }}
-        >
-          Home
-        </Button>
+        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.0 }}>
+          <Button
+            d="block"
+            w="150px"
+            p="8px"
+            m="30px"
+            bg="palevioletred"
+            borderradius="4px"
+            color="white"
+            text-align="center"
+            _hover={{
+              bg: 'turquoise',
+            }}
+          >
+            Home
+          </Button>
+        </motion.button>
       </Link>
       <Link href="/About">
-        <Button
-          d="block"
-          w="150px"
-          p="8px"
-          m="30px"
-          bg="palevioletred"
-          borderradius="4px"
-          color="white"
-          text-align="center"
-          _hover={{
-            bg: 'turquoise',
-          }}
-        >
-          About
-        </Button>
+        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.0 }}>
+          <Button
+            d="block"
+            w="150px"
+            p="8px"
+            m="30px"
+            bg="palevioletred"
+            borderradius="4px"
+            color="white"
+            text-align="center"
+            _hover={{
+              bg: 'turquoise',
+            }}
+          >
+            About
+          </Button>
+        </motion.button>
       </Link>
       <Link href="/FormDate">
-        <Button
-          d="block"
-          w="150px"
-          p="8px"
-          m="30px"
-          bg="palevioletred"
-          borderradius="4px"
-          color="white"
-          text-align="center"
-          _hover={{
-            bg: 'turquoise',
-          }}
-        >
-          Create a Date
-        </Button>
+        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.0 }}>
+          <Button
+            d="block"
+            w="150px"
+            p="8px"
+            m="30px"
+            bg="palevioletred"
+            borderradius="4px"
+            color="white"
+            text-align="center"
+            _hover={{
+              bg: 'turquoise',
+            }}
+          >
+            Create a Date
+          </Button>
+        </motion.button>
       </Link>
       <Link href="/Dates">
-        <Button
-          d="block"
-          w="150px"
-          p="8px"
-          m="30px"
-          bg="palevioletred"
-          borderradius="4px"
-          color="white"
-          text-align="center"
-          _hover={{
-            bg: 'turquoise',
-          }}
-        >
-          Previous Dates
-        </Button>
+        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.0 }}>
+          <Button
+            d="block"
+            w="150px"
+            p="8px"
+            m="30px"
+            bg="palevioletred"
+            borderradius="4px"
+            color="white"
+            text-align="center"
+            _hover={{
+              bg: 'turquoise',
+            }}
+          >
+            Previous Dates
+          </Button>
+        </motion.button>
       </Link>
     </HStack>
   );
