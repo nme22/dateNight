@@ -35,23 +35,6 @@ export default function Home() {
           Don't Pencilvester your memories; remember the barbaque. Plan out your
           dates, send an invitation, and record your experience!{' '}
         </Text>
-        <HStack d="flex" alignContent="center" p="8px">
-          <motion.div
-            whileHover={{ scale: 1.3, rotate: 360 }}
-            whileTap={{
-              scale: 0.8,
-              rotate: -90,
-              borderRadius: '100%',
-            }}
-          >
-            <Image
-              src="/datingIMG.png"
-              alt="Heart"
-              height="70px"
-              width="70px"
-            />
-          </motion.div>
-        </HStack>
 
         <Link href="/About">
           <Button

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { HStack, Button, useColorMode } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
 const DateNavbar = () => {
   const { toggleColorMode } = useColorMode();
@@ -20,18 +21,21 @@ const DateNavbar = () => {
         h="300%"
         w="80px"
         borderradius="35%"
-        bg="white"
+        bg="palevioletred"
         _hover={{
           bg: 'turquoise',
         }}
       >
-        <Image
-          src="/datingIMG.png"
-          alt="Heart"
-          height="70px"
-          width="70px"
-          borderradius="50%"
-        />
+        <motion.div
+          whileHover={{ scale: 1.3, rotate: 360 }}
+          whileTap={{
+            scale: 0.8,
+            rotate: -90,
+            borderRadius: '100%',
+          }}
+        >
+          <Image src="/datingIMG.png" alt="Heart" height="70px" width="70px" />
+        </motion.div>
       </Button>
 
       <Link href="/">
