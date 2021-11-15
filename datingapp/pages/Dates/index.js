@@ -19,15 +19,27 @@ const getDates = ({ dates }) => {
         <title>DateNight | Previous Dates</title>
         <meta name="keywords" content="DateNight" />
       </Head>
-      <Heading fontFamily="Nunito" color="palevioletred">
+      <Heading
+        fontFamily="Nunito"
+        bgGradient="linear(to-l, red.300, blue.400 )"
+        bgClip="text"
+        p={2}
+        mb={3}
+      >
         All Dates
       </Heading>
       <Divider />
       {dates.map((dates) => (
         <Link href={'/Dates/' + dates.id} key={dates.id}>
-          <a className={styles.single}>
-            <h3>{dates.name}</h3>
-          </a>
+          <Heading
+            bgGradient="linear(to-l, red.300, blue.400 )"
+            borderRadius={50}
+            fontSize="2xl"
+            p={1}
+            mb={3}
+          >
+            {dates.name}
+          </Heading>
         </Link>
       ))}
     </div>
