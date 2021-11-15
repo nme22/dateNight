@@ -12,6 +12,8 @@ const DateNavbar = () => {
       h={50}
       p={4}
       spacing={6}
+      display="flex"
+      flexDirection="row"
       justifyContent="space-around"
       fontFamily="Nunito"
       textColor="palevioletred"
@@ -58,22 +60,22 @@ const DateNavbar = () => {
         </motion.button>
       </Link>
       <Link href="/About">
-        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.0 }}>
-          <Button
-            d="block"
-            w="150px"
-            p="8px"
-            m="30px"
-            bg="palevioletred"
-            borderradius="4px"
-            color="white"
-            text-align="center"
-            _hover={{
-              bg: 'turquoise',
-            }}
-          >
-            About
-          </Button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 1.0 }}
+          d="block"
+          w="150px"
+          p="8px"
+          m="30px"
+          bg="palevioletred"
+          borderradius="4px"
+          color="white"
+          text-align="center"
+          _hover={{
+            bg: 'turquoise',
+          }}
+        >
+          About
         </motion.button>
       </Link>
       <Link href="/FormDate">

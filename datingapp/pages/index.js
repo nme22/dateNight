@@ -28,10 +28,19 @@ export default function Home() {
           textAlign="center"
           fontFamily="Nunito"
           fontWeight="Bold"
+          bgGradient="linear(to-r, red.300, blue.400 )"
+          bgClip="text"
         >
           "Where Moments Become Memories"{' '}
         </Heading>
-        <Text fontFamily="Nunito" pb="20" fontSize="2xl" color="palevioletred">
+        <Text
+          fontFamily="Nunito"
+          pb="20"
+          fontSize="2xl"
+          bgGradient="linear(to-r, red.300, blue.400 )"
+          bgClip="text"
+          fontSize="2xl"
+        >
           Don't Pencilvester your memories; remember the barbaque. Plan out your
           dates, send an invitation, and record your experience!{' '}
         </Text>

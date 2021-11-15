@@ -1,7 +1,7 @@
 import styles from '../../styles/Dates.module.css';
 import Link from 'next/link';
 import Head from 'next/head';
-import { Heading, Divider, VStack } from '@chakra-ui/react';
+import { Heading, Divider, VStack, Box } from '@chakra-ui/react';
 
 export const getStaticProps = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');

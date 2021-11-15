@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Heading, VStack, Text } from '@chakra-ui/react';
+import { Heading, VStack, Text, Box } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import * as react from 'react';
 const About = () => {
@@ -18,11 +18,18 @@ const About = () => {
         <meta name="keywords" content="DateNight" />
       </Head>
       <VStack justifyContent="center" fontFamily="Nunito" fontSize="2xl">
-        <Heading p="20px" color="palevioletred">
-          About
+        <Heading p="20px">
+          <Text bgGradient="linear(to-r, red.300, blue.400 )" bgClip="text">
+            About
+          </Text>
         </Heading>
 
-        <Text color="palevioletred" alignContent="center">
+        <Text
+          bgGradient="linear(to-r, red.300, blue.400 )"
+          bgClip="text"
+          fontSize="3xl"
+          fontWeight="extrabold"
+        >
           This application is designed to help the user keep track of their
           romantic endevours by creating a personal dating profile to help you
           remember your romantic progress! This application uses the Yelp API to
