@@ -1,5 +1,14 @@
-// import getDates from ".";
+import { useEffect } from 'react';
 
+useEffect(() => {
+  fetchDates();
+}, []);
+
+async function fetchDates() {
+  const { data } = await supabase.from('dates').select();
+  setDates(data);
+  console.log('data:', data);
+}
 export const getStaticPaths = async () => {
   const res = await fetch(
     'https://jsonplaceholder.typicode.com/users'

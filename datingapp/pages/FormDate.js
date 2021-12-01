@@ -12,6 +12,7 @@ import {
   Select,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+import supabase from '../src/client';
 
 const FormDate = () => {
   const [name, setName] = useState('');
@@ -21,6 +22,56 @@ const FormDate = () => {
   const [what, setWhat] = useState('Food');
 
   const [yelpData, setYelpData] = useState();
+
+  const [dates, setDates] = useState([]);
+  const [date, setDate] = useState({
+    activity: '',
+    locations: '',
+    event: '',
+    names: '',
+    contact: '',
+    timeDate: '',
+    repeat: '',
+    notes: '',
+  });
+  const {
+    activity,
+    locations,
+    event,
+    names,
+    contact,
+    timeDate,
+    repeat,
+    notes,
+  } = date;
+
+  useEffect(() => {
+    fetchDates();
+  }, []);
+
+  async function fetchDates() {
+    const { data } = await supabase.from('dates').select();
+    setDates(data);
+    console.log('data:', data);
+  }
+
+  async function createDate() {
+    await supabase
+      .from('dates')
+      .insert([
+        {
+          activity: what,
+          locations: location,
+          event: choice, ///create variable to store selected choice from yelp api
+          names: name,
+          contact: phoneNumber,
+          timeDate: when,
+          repeat: again, ///create variable to track boolean state
+          notes: notes, ///create note variable and track state of textarea
+        },
+      ])
+      .single();
+  }
 
   function handleSearchWhat() {
     fetch('/api/events', {
@@ -190,23 +241,27 @@ const FormDate = () => {
           fontWeight="bold"
         ></Textarea>
 
-        <Link href="/Previous Dates">
-          <Button
-            d="block"
-            w="150px"
-            p="8px"
-            m="30px"
-            bg="palevioletred"
-            borderradius="4px"
-            color="white"
-            text-align="center"
-            _hover={{
-              bg: 'turquoise',
-            }}
-          >
-            Create Your Date!
-          </Button>
-        </Link>
+        <Button
+          d="block"
+          w="150px"
+          p="8px"
+          m="30px"
+          bg="palevioletred"
+          borderradius="4px"
+          color="white"
+          text-align="center"
+          _hover={{
+            bg: 'turquoise',
+          }}
+          onClick={createDate}
+        >
+          Create Your Date!
+        </Button>
+        {dates.map((date) => (
+          <div key={date.id}>
+            <h3>{date.activity}</h3>
+          </div>
+        ))}
       </div>
     </VStack>
   );
