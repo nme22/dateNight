@@ -20,6 +20,7 @@ const FormDate = () => {
   const [location, setLocation] = useState('');
   const [when, setWhen] = useState('');
   const [what, setWhat] = useState('Food');
+  const [note, setNote] = useState('');
 
   const [yelpData, setYelpData] = useState();
 
@@ -67,7 +68,7 @@ const FormDate = () => {
           contact: phoneNumber,
           timeDate: when,
           repeat: again, ///create variable to track boolean state
-          notes: notes, ///create note variable and track state of textarea
+          notes: note,
         },
       ])
       .single();
@@ -100,6 +101,9 @@ const FormDate = () => {
     setWhen(e.target.value);
   }
 
+  function handleNoteChange(e) {
+    setNote(e.target.value);
+  }
   return (
     <VStack py={2} fontFamily="Nunito">
       <Head>
@@ -239,6 +243,8 @@ const FormDate = () => {
           type="text"
           placeholder="Noteable things that happened during the date"
           fontWeight="bold"
+          onChange={handleNoteChange}
+          value={note}
         ></Textarea>
 
         <Button
