@@ -20,6 +20,7 @@ const FormDate = () => {
   const [location, setLocation] = useState('');
   const [when, setWhen] = useState('');
   const [what, setWhat] = useState('Food');
+  const [again, setAgain] = useState('true');
   const [note, setNote] = useState('');
 
   const [yelpData, setYelpData] = useState();
@@ -103,6 +104,9 @@ const FormDate = () => {
 
   function handleNoteChange(e) {
     setNote(e.target.value);
+  }
+  function handleAgainChange(e) {
+    setAgain(e.target.value);
   }
   return (
     <VStack py={2} fontFamily="Nunito">
@@ -227,9 +231,11 @@ const FormDate = () => {
             required
             textAlign="center"
             fontWeight="bold"
+            onChange={handleAgainChange}
+            value={again}
           >
-            <option value="Yes">Yes</option>
-            <option value="No">No Shot</option>
+            <option value="true">Yes</option>
+            <option value="false">No Shot</option>
           </Select>
         </FormControl>
 
