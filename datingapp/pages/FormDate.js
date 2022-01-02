@@ -10,6 +10,7 @@ import {
   Heading,
   Textarea,
   Select,
+  Image,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import supabase from '../src/client';
@@ -68,7 +69,7 @@ const FormDate = () => {
           names: name,
           contact: phoneNumber,
           timeDate: when,
-          repeat: again, ///create variable to track boolean state
+          repeat: again,
           notes: note,
         },
       ])
@@ -269,11 +270,6 @@ const FormDate = () => {
         >
           Create Your Date!
         </Button>
-        {dates.map((date) => (
-          <div key={date.id}>
-            <h3>{date.activity}</h3>
-          </div>
-        ))}
       </div>
     </VStack>
   );

@@ -1,72 +1,42 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { HStack, Button, useColorMode } from '@chakra-ui/react';
+import { HStack, Button, useColorMode, Box } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 const DateNavbar = () => {
   const { toggleColorMode } = useColorMode();
 
   return (
-    <HStack
-      w="full"
-      h={50}
+    <Box
+      h={{ base: '100%', md: '100%', lg: '100%' }}
+      w={{ base: '100%', md: '100%', lg: '100%' }}
       p={4}
-      spacing={6}
-      display="flex"
+      d="flex"
       flexDirection="row"
+      flexWrap="wrap"
       justifyContent="space-around"
       fontFamily="Nunito"
       textColor="palevioletred"
     >
       <Button
         onClick={toggleColorMode}
-        h="300%"
-        w="80px"
-        borderradius="35%"
+        h="48px"
+        w="64px"
+        borderradius="25%"
         bg="palevioletred"
         _hover={{
           bg: 'turquoise',
         }}
       >
-        <motion.div
-          whileHover={{ scale: 1.3, rotate: 360 }}
-          whileTap={{
-            scale: 0.8,
-            rotate: -90,
-            borderRadius: '100%',
-          }}
-        >
-          <Image src="/datingIMG.png" alt="Heart" height="70px" width="70px" />
-        </motion.div>
+        <Image src="/datingIMG.png" alt="Heart" height="72px" width="64px" />
       </Button>
 
       <Link href="/">
-        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.0 }}>
-          <Button
-            d="block"
-            w="150px"
-            p="8px"
-            m="30px"
-            bg="palevioletred"
-            borderradius="4px"
-            color="white"
-            text-align="center"
-            _hover={{
-              bg: 'turquoise',
-            }}
-          >
-            Home
-          </Button>
-        </motion.button>
-      </Link>
-      <Link href="/About">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 1.0 }}
+        <Button
           d="block"
-          w="150px"
+          h={{ base: '20%', md: '15%', lg: '10%' }}
+          w={{ base: '20%', md: '15%', lg: '10%' }}
           p="8px"
-          m="30px"
           bg="palevioletred"
           borderradius="4px"
           color="white"
@@ -75,48 +45,61 @@ const DateNavbar = () => {
             bg: 'turquoise',
           }}
         >
+          Home
+        </Button>
+      </Link>
+      <Link href="/About">
+        <Button
+          d="block"
+          h={{ base: '25%', md: '15%', lg: '10%' }}
+          w={{ base: '25%', md: '15%', lg: '10%' }}
+          p="8px"
+          bg="palevioletred"
+          borderradius="5%"
+          color="white"
+          text-align="center"
+          _hover={{
+            bg: 'turquoise',
+          }}
+        >
           About
-        </motion.button>
+        </Button>
       </Link>
       <Link href="/FormDate">
-        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.0 }}>
-          <Button
-            d="block"
-            w="150px"
-            p="8px"
-            m="30px"
-            bg="palevioletred"
-            borderradius="4px"
-            color="white"
-            text-align="center"
-            _hover={{
-              bg: 'turquoise',
-            }}
-          >
-            Create a Date
-          </Button>
-        </motion.button>
+        <Button
+          d="block"
+          h={{ base: '25%', md: '15%', lg: '10%' }}
+          w={{ base: '25%', md: '15%', lg: '10%' }}
+          p="8px"
+          bg="palevioletred"
+          borderradius="4px"
+          color="white"
+          text-align="center"
+          _hover={{
+            bg: 'turquoise',
+          }}
+        >
+          Create a Date
+        </Button>
       </Link>
       <Link href="/Dates">
-        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.0 }}>
-          <Button
-            d="block"
-            w="150px"
-            p="8px"
-            m="30px"
-            bg="palevioletred"
-            borderradius="4px"
-            color="white"
-            text-align="center"
-            _hover={{
-              bg: 'turquoise',
-            }}
-          >
-            Previous Dates
-          </Button>
-        </motion.button>
+        <Button
+          d="block"
+          h={{ base: '25%', md: '15%', lg: '10%' }}
+          w={{ base: '25%', md: '15%', lg: '10%' }}
+          p="8px"
+          bg="palevioletred"
+          borderradius="4px"
+          textAlign="start"
+          color="white"
+          _hover={{
+            bg: 'turquoise',
+          }}
+        >
+          Previous Dates
+        </Button>
       </Link>
-    </HStack>
+    </Box>
   );
 };
 
