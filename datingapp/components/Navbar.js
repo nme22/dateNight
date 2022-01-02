@@ -34,8 +34,8 @@ const DateNavbar = () => {
       <Link href="/">
         <Button
           d="block"
-          h={{ base: '20%', md: '15%', lg: '10%' }}
-          w={{ base: '20%', md: '15%', lg: '10%' }}
+          h={{ base: '25%', md: '20%', lg: '15%' }}
+          w={{ base: '25%', md: '20%', lg: '15%' }}
           p="8px"
           bg="palevioletred"
           borderradius="4px"
@@ -51,8 +51,8 @@ const DateNavbar = () => {
       <Link href="/About">
         <Button
           d="block"
-          h={{ base: '25%', md: '15%', lg: '10%' }}
-          w={{ base: '25%', md: '15%', lg: '10%' }}
+          h={{ base: '25%', md: '20%', lg: '15%' }}
+          w={{ base: '25%', md: '20%', lg: '15%' }}
           p="8px"
           bg="palevioletred"
           borderradius="5%"
@@ -68,8 +68,8 @@ const DateNavbar = () => {
       <Link href="/FormDate">
         <Button
           d="block"
-          h={{ base: '25%', md: '15%', lg: '10%' }}
-          w={{ base: '25%', md: '15%', lg: '10%' }}
+          h={{ base: '25%', md: '20%', lg: '15%' }}
+          w={{ base: '25%', md: '20%', lg: '15%' }}
           p="8px"
           bg="palevioletred"
           borderradius="4px"
@@ -85,12 +85,12 @@ const DateNavbar = () => {
       <Link href="/Dates">
         <Button
           d="block"
-          h={{ base: '25%', md: '15%', lg: '10%' }}
-          w={{ base: '25%', md: '15%', lg: '10%' }}
+          h={{ base: '25%', md: '20%', lg: '15%' }}
+          w={{ base: '25%', md: '20%', lg: '15%' }}
           p="8px"
           bg="palevioletred"
           borderradius="4px"
-          textAlign="start"
+          textAlign="center"
           color="white"
           _hover={{
             bg: 'turquoise',
