@@ -21,30 +21,59 @@ export default function Home() {
           <title>DateNight | Home</title>
           <meta name="keywords" content="DateNight" />
         </Head>
-
-        <Heading
-          textColor="palevioletred"
-          p="20"
-          textAlign="center"
-          fontFamily="Nunito"
-          fontWeight="Bold"
-          bgGradient="linear(to-r, red.300, blue.400 )"
-          bgClip="text"
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 3 }}
         >
-          "Where Moments Become Memories"{' '}
-        </Heading>
-        <Text
-          fontFamily="Nunito"
-          pb="20"
-          fontSize="2xl"
-          bgGradient="linear(to-r, red.300, blue.400 )"
-          bgClip="text"
-          fontSize="2xl"
+          <Heading
+            fontSize={48}
+            textColor="palevioletred"
+            p="2"
+            textAlign="center"
+            fontFamily="Nunito"
+            fontWeight="Bold"
+            bgGradient="linear(to-r, red.300, blue.400 )"
+            bgClip="text"
+          >
+            DateNight
+          </Heading>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 6 }}
         >
-          Don't Pencilvester your memories; remember the barbaque. Plan out your
-          dates, send an invitation, and record your experience!{' '}
-        </Text>
-
+          <Heading
+            textColor="palevioletred"
+            p="2"
+            fontSize={27}
+            textAlign="center"
+            fontFamily="Nunito"
+            fontWeight="Bold"
+            bgGradient="linear(to-r, red.300, blue.400 )"
+            bgClip="text"
+          >
+            "Where moments become memories"
+          </Heading>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 8 }}
+        >
+          <Text
+            fontFamily="Nunito"
+            pb="20"
+            fontSize="2xl"
+            bgGradient="linear(to-r, red.300, blue.400 )"
+            bgClip="text"
+            fontSize="2xl"
+          >
+            Don't Pencilvester your memories; remember the barbaque. Plan out
+            your dates, send an invitation, and record your experience!{' '}
+          </Text>
+        </motion.div>
         <Link href="/About">
           <Button
             d="block"
