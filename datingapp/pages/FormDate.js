@@ -10,7 +10,6 @@ import {
   Heading,
   Textarea,
   Select,
-  Image,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import supabase from '../src/client';
@@ -170,6 +169,7 @@ const FormDate = () => {
           >
             See whats around!
           </Button>
+
           {yelpData ? (
             <Select>
               {yelpData.data.businesses.map((business) => (
