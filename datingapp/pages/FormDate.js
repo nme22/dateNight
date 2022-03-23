@@ -1,6 +1,9 @@
-import Link from 'next/link';
 import Head from 'next/head';
 import {
+   Flex,
+   Badge,
+   Avatar,
+   Box,
    Button,
    Divider,
    FormControl,
@@ -9,6 +12,7 @@ import {
    VStack,
    Heading,
    Textarea,
+   Text,
    Select,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
@@ -22,6 +26,7 @@ const FormDate = () => {
    const [what, setWhat] = useState('Food');
    const [again, setAgain] = useState('true');
    const [note, setNote] = useState('');
+   const [activity, setActivity] = useState('');
 
    const [yelpData, setYelpData] = useState();
 
@@ -36,16 +41,6 @@ const FormDate = () => {
       repeat: '',
       notes: '',
    });
-   const {
-      activity,
-      locations,
-      event,
-      names,
-      contact,
-      timeDate,
-      repeat,
-      notes,
-   } = date;
 
    useEffect(() => {
       fetchDates();
@@ -82,6 +77,7 @@ const FormDate = () => {
       })
          .then((response) => response.json())
          .then((data) => setYelpData(data));
+      console.log(yelpData);
    }
 
    function handleLocationChange(e) {
@@ -107,6 +103,9 @@ const FormDate = () => {
    }
    function handleAgainChange(e) {
       setAgain(e.target.value);
+   }
+   function handleActivityChange(e) {
+      setActivity(e.target.value);
    }
    return (
       <>
@@ -172,9 +171,9 @@ const FormDate = () => {
                   </Button>
 
                   {yelpData ? (
-                     <Select>
+                     <Select value={activity} onChange={handleActivityChange}>
                         {yelpData.data.businesses.map((business) => (
-                           <option>{business.alias}</option>
+                           <option>{business.name}</option>
                         ))}
                      </Select>
                   ) : null}

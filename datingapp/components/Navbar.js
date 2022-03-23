@@ -28,6 +28,9 @@ const DateNavbar = () => {
             onClick={toggleColorMode}
             alignSelf="flex-end"
             bgGradient="linear(to-r, red.300, blue.400 )"
+            _hover={{
+               bg: 'turquoise',
+            }}
             color="whiteAlpha.700"
          />
 
