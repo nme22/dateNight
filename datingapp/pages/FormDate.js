@@ -1,9 +1,5 @@
 import Head from 'next/head';
 import {
-   Flex,
-   Badge,
-   Avatar,
-   Box,
    Button,
    Divider,
    FormControl,
@@ -12,10 +8,9 @@ import {
    VStack,
    Heading,
    Textarea,
-   Text,
    Select,
 } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import supabase from '../src/client';
 
 const FormDate = () => {
@@ -30,44 +25,26 @@ const FormDate = () => {
 
    const [yelpData, setYelpData] = useState();
 
-   const [dates, setDates] = useState([]);
    const [date, setDate] = useState({
-      activity: '',
-      locations: '',
-      event: '',
-      names: '',
-      contact: '',
-      timeDate: '',
-      repeat: '',
-      notes: '',
+      activity: what,
+      locations: location,
+      names: name,
+      contact: phoneNumber,
+      timeDate: when,
+      repeat: again,
+      notes: note,
    });
-
-   useEffect(() => {
-      fetchDates();
-   }, []);
-
-   async function fetchDates() {
-      const { data } = await supabase.from('dates').select();
-      setDates(data);
-      console.log('data:', data);
-   }
 
    async function createDate() {
       await supabase
          .from('dates')
          .insert([
             {
-               activity: what,
-               locations: location,
-               event: choice, ///create variable to store selected choice from yelp api
-               names: name,
-               contact: phoneNumber,
-               timeDate: when,
-               repeat: again,
-               notes: note,
+               date,
             },
          ])
          .single();
+      setDate({ date: {} });
    }
 
    function handleSearchWhat() {

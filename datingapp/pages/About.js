@@ -39,7 +39,7 @@ const About = () => {
                   to help you remember your romantic progress! This application
                   uses the Yelp API to help browse potential date ideas,
                   coordinate a date night properly, and record the date to
-                  prevent your romance from being dry!
+                  prevent your romance from becoming dry!
                </Text>
             </VStack>
          </motion.div>
