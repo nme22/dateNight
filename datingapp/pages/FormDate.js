@@ -10,7 +10,7 @@ import {
    Textarea,
    Select,
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import supabase from '../src/client';
 
 const FormDate = () => {
@@ -24,27 +24,50 @@ const FormDate = () => {
    const [activity, setActivity] = useState('');
 
    const [yelpData, setYelpData] = useState();
-
+   const [dates, setDates] = useState([]);
    const [date, setDate] = useState({
-      activity: what,
-      locations: location,
-      names: name,
-      contact: phoneNumber,
-      timeDate: when,
-      repeat: again,
-      notes: note,
+      what,
+      location,
+      name,
+      phoneNumber,
+      when,
+      again,
+      note,
    });
 
+   useEffect(() => {
+      fetchDates();
+   }, []);
+
+   async function fetchDates() {
+      const { data } = await supabase.from('dates').select();
+      setDates(data);
+      console.log('data:', data);
+   }
    async function createDate() {
       await supabase
          .from('dates')
          .insert([
             {
-               date,
+               activity: what.value,
+               locations: location.value,
+               names: name.value,
+               contact: phoneNumber.value,
+               timeDate: when.value,
+               repeat: again.value,
+               notes: note.value,
             },
          ])
          .single();
-      setDate({ date: {} });
+      setDate({
+         what: '',
+         location: '',
+         name: '',
+         phoneNumber: '',
+         when: '',
+         again: '',
+         note: '',
+      });
    }
 
    function handleSearchWhat() {
