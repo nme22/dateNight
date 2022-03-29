@@ -11,7 +11,7 @@ import {
    Select,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import supabase from '../src/client';
+import supabase from '@lib/supabase';
 
 const FormDate = () => {
    const [name, setName] = useState('');
@@ -38,7 +38,7 @@ const FormDate = () => {
    useEffect(() => {
       fetchDates();
    }, []);
-
+   // Future: enable row level security for specific users to pull their dates
    async function fetchDates() {
       const { data } = await supabase.from('dates').select();
       setDates(data);
@@ -49,25 +49,25 @@ const FormDate = () => {
          .from('dates')
          .insert([
             {
-               activity: what.value,
-               locations: location.value,
-               names: name.value,
-               contact: phoneNumber.value,
-               timeDate: when.value,
-               repeat: again.value,
-               notes: note.value,
+               activity: what,
+               locations: location,
+               name,
+               contact: phoneNumber,
+               timeDate: when,
+               repeat: again,
+               notes: note,
             },
          ])
          .single();
-      setDate({
-         what: '',
-         location: '',
-         name: '',
-         phoneNumber: '',
-         when: '',
-         again: '',
-         note: '',
-      });
+      // setDate({
+      //    what: '',
+      //    location: '',
+      //    name: '',
+      //    phoneNumber: '',
+      //    when: '',
+      //    again: '',
+      //    note: '',
+      // });
    }
 
    function handleSearchWhat() {

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { VStack, Heading, Text, Button } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
-export default function Component() {
+export default function Home() {
    return (
       <>
          <Head>

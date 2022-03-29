@@ -35,9 +35,9 @@ const DateNavbar = () => {
          />
 
          <Link href="/">Home</Link>
-         <Link href="/About">About</Link>
-         <Link href="/FormDate">Create a Date</Link>
-         <Link href="/Dates">Previous Dates</Link>
+         <Link href="/about">About</Link>
+         <Link href="/dates/create">Create a Date</Link>
+         <Link href="/dates">Previous Dates</Link>
       </Box>
    );
 };
