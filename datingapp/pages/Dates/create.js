@@ -49,7 +49,8 @@ const FormDate = () => {
          .from('dates')
          .insert([
             {
-               activity: what,
+               activity,
+               what,
                locations: location,
                name,
                contact: phoneNumber,
@@ -59,15 +60,16 @@ const FormDate = () => {
             },
          ])
          .single();
-      // setDate({
-      //    what: '',
-      //    location: '',
-      //    name: '',
-      //    phoneNumber: '',
-      //    when: '',
-      //    again: '',
-      //    note: '',
-      // });
+      setDate({
+         what: '',
+         location: '',
+         name: '',
+         phoneNumber: '',
+         when: '',
+         again: '',
+         note: '',
+         activity: '',
+      });
    }
 
    function handleSearchWhat() {
