@@ -44,9 +44,7 @@ export default function getDates() {
                mb={3}
                key={dates.id}
             >
-               <Heading size="lg">
-                  <h1>{dates.name}</h1>
-               </Heading>
+               <Heading size="lg">{dates.name}</Heading>
                <HStack color="black">
                   <label>Date:</label>
                   <h2>{dates.timeDate}</h2>
