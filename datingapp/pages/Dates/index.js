@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import { Heading, Divider } from '@chakra-ui/react';
+import { Heading, Divider, VStack, HStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import supabase from '@lib/supabase';
 
@@ -26,6 +26,7 @@ export default function getDates() {
             fontFamily="Nunito"
             bgGradient="linear(to-l, red.300, blue.400 )"
             bgClip="text"
+            size="2xl"
             p={2}
             mb={3}
          >
@@ -33,16 +34,36 @@ export default function getDates() {
          </Heading>
          <Divider />
          {dates.map((dates) => (
-            <Heading
+            <VStack
                bgGradient="linear(to-l, red.300, blue.400 )"
-               borderRadius="2xl"
-               fontSize="2xl"
+               borderRadius="md"
+               fontSize="lg"
+               fontFamily="heading"
+               justifyContent="space-around"
                p={1}
                mb={3}
                key={dates.id}
             >
-               {dates.name}
-            </Heading>
+               <Heading size="lg">
+                  <h1>{dates.name}</h1>
+               </Heading>
+               <HStack color="black">
+                  <label>Date:</label>
+                  <h2>{dates.timeDate}</h2>
+               </HStack>
+               <HStack color="black">
+                  <label>Contact:</label>
+                  <h2>{dates.contact}</h2>
+               </HStack>
+               <HStack color="black">
+                  <label>Activity:</label>
+                  <h3>{dates.activity}</h3>
+               </HStack>
+               <HStack color="black">
+                  <label>notes:</label>
+                  <p>{dates.notes}</p>
+               </HStack>
+            </VStack>
          ))}
       </div>
    );

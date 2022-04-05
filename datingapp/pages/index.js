@@ -64,7 +64,7 @@ export default function Home() {
                   experience!{' '}
                </Text>
             </motion.div>
-            <Link href="/About">
+            <Link href="/about">
                <Button
                   d="block"
                   w="150px"

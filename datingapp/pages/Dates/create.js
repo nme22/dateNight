@@ -9,11 +9,13 @@ import {
    Heading,
    Textarea,
    Select,
+   useToast,
 } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import supabase from '@lib/supabase';
 
 const FormDate = () => {
+   const toast = useToast();
    const [name, setName] = useState('');
    const [phoneNumber, setPhoneNumber] = useState('');
    const [location, setLocation] = useState('');
@@ -24,26 +26,7 @@ const FormDate = () => {
    const [activity, setActivity] = useState('');
 
    const [yelpData, setYelpData] = useState();
-   const [dates, setDates] = useState([]);
-   const [date, setDate] = useState({
-      what,
-      location,
-      name,
-      phoneNumber,
-      when,
-      again,
-      note,
-   });
 
-   useEffect(() => {
-      fetchDates();
-   }, []);
-   // Future: enable row level security for specific users to pull their dates
-   async function fetchDates() {
-      const { data } = await supabase.from('dates').select();
-      setDates(data);
-      console.log('data:', data);
-   }
    async function createDate() {
       await supabase
          .from('dates')
@@ -60,16 +43,6 @@ const FormDate = () => {
             },
          ])
          .single();
-      setDate({
-         what: '',
-         location: '',
-         name: '',
-         phoneNumber: '',
-         when: '',
-         again: '',
-         note: '',
-         activity: '',
-      });
    }
 
    function handleSearchWhat() {
@@ -240,38 +213,47 @@ const FormDate = () => {
                      <option value="true">Yes</option>
                      <option value="false">No Shot</option>
                   </Select>
+
+                  <FormLabel color="palevioletred" fontWeight="bold">
+                     Notes:
+                  </FormLabel>
+                  <Textarea
+                     _focus={{
+                        borderColor: 'Pink',
+                     }}
+                     type="text"
+                     placeholder="Noteable things that happened during the date"
+                     fontWeight="bold"
+                     onChange={handleNoteChange}
+                     value={note}
+                  />
+
+                  <Button
+                     d="block"
+                     w="150px"
+                     p="8px"
+                     m="30px"
+                     bg="palevioletred"
+                     borderradius="4px"
+                     color="white"
+                     text-align="center"
+                     _hover={{
+                        bg: 'turquoise',
+                     }}
+                     onClick={createDate}
+                     onSubmit={() =>
+                        toast({
+                           title: 'Date created.',
+                           description: "We've created your date for you.",
+                           status: 'success',
+                           duration: 9000,
+                           isClosable: true,
+                        })
+                     }
+                  >
+                     Create Your Date!
+                  </Button>
                </FormControl>
-
-               <FormLabel color="palevioletred" fontWeight="bold">
-                  Notes:
-               </FormLabel>
-               <Textarea
-                  _focus={{
-                     borderColor: 'Pink',
-                  }}
-                  type="text"
-                  placeholder="Noteable things that happened during the date"
-                  fontWeight="bold"
-                  onChange={handleNoteChange}
-                  value={note}
-               ></Textarea>
-
-               <Button
-                  d="block"
-                  w="150px"
-                  p="8px"
-                  m="30px"
-                  bg="palevioletred"
-                  borderradius="4px"
-                  color="white"
-                  text-align="center"
-                  _hover={{
-                     bg: 'turquoise',
-                  }}
-                  onClick={createDate}
-               >
-                  Create Your Date!
-               </Button>
             </div>
          </VStack>
       </>
