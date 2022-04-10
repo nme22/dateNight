@@ -40,24 +40,24 @@ export default function getDates() {
                fontSize="lg"
                fontFamily="heading"
                justifyContent="space-around"
-               p={1}
-               mb={3}
+               p={2}
+               m={3}
                key={dates.id}
             >
                <Heading size="lg">{dates.name}</Heading>
-               <HStack color="black">
+               <HStack>
                   <label>Date:</label>
                   <h2>{dates.timeDate}</h2>
                </HStack>
-               <HStack color="black">
+               <HStack>
                   <label>Contact:</label>
                   <h2>{dates.contact}</h2>
                </HStack>
-               <HStack color="black">
+               <HStack>
                   <label>Activity:</label>
                   <h3>{dates.activity}</h3>
                </HStack>
-               <HStack color="black">
+               <HStack>
                   <label>notes:</label>
                   <p>{dates.notes}</p>
                </HStack>

@@ -20,6 +20,7 @@ const DateNavbar = () => {
          bgGradient="linear(to-r, red.300, blue.400 )"
          bgClip="text"
          fontWeight="extrabold"
+         fontSize="sm"
       >
          <IconButton
             icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
