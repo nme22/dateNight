@@ -52,8 +52,8 @@ export default function getDates() {
                <Flex
                   bgGradient="linear(to-l, red.300, blue.400 )"
                   borderRadius="lg"
-                  flexWrap="nowrap"
-                  justifyContent="space-evenly"
+                  flexWrap="wrap"
+                  justify="space-evenly"
                   w={{ base: '10rem', md: '14rem', lg: '15rem', xl: '20rem' }}
                   h={{
                      base: '15rem',
@@ -66,7 +66,16 @@ export default function getDates() {
                   key={dates.id}
                   flexDirection="column"
                >
-                  <Heading size="md" alignSelf="center">
+                  <Heading
+                     size="md"
+                     alignSelf="center"
+                     fontSize={{
+                        base: '10px',
+                        md: '12px',
+                        lg: '14px',
+                        xl: '20px',
+                     }}
+                  >
                      {dates.name}
                   </Heading>
                   {dates.repeat == true ? (
