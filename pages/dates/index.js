@@ -53,16 +53,25 @@ export default function getDates() {
                <Stack
                   bgGradient="linear(to-l, red.300, blue.400 )"
                   borderRadius="lg"
-                  borderColor="whiteAlpha.300"
-                  borderWidth="2px"
-                  fontSize="md"
+                  fontSize={{
+                     base: '14px',
+                     md: '16px',
+                     lg: '18px',
+                     xl: '20px',
+                  }}
                   flexWrap="wrap"
-                  justifyContent="center"
-                  width="200px"
-                  height="200px"
-                  key={dates.id}
-                  mr={1}
+                  justifyContent="space-evenly"
+                  w={{ base: '10rem', md: '14rem', lg: '15rem', xl: '17rem' }}
+                  h={{
+                     base: '15rem',
+                     md: '15rem',
+                     lg: '15rem',
+                     xl: '20rem',
+                  }}
                   m={1}
+                  p={1}
+                  flexShrink={1}
+                  key={dates.id}
                >
                   <Stack>
                      <Heading size="md" alignSelf="center">
