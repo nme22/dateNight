@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Head from 'next/head';
 import {
    Heading,
@@ -8,10 +7,10 @@ import {
    ListIcon,
    Stack,
    HStack,
-   Fade,
-   ScaleFade,
-   Slide,
-   SlideFade,
+   Badge,
+   Text,
+   Flex,
+   Spacer,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { PhoneIcon, FoodIcon } from '@chakra-ui/react';
@@ -50,18 +49,12 @@ export default function getDates() {
             </Head>
 
             {dates.map((dates) => (
-               <Stack
+               <Flex
                   bgGradient="linear(to-l, red.300, blue.400 )"
                   borderRadius="lg"
-                  fontSize={{
-                     base: '14px',
-                     md: '16px',
-                     lg: '18px',
-                     xl: '20px',
-                  }}
-                  flexWrap="wrap"
+                  flexWrap="nowrap"
                   justifyContent="space-evenly"
-                  w={{ base: '10rem', md: '14rem', lg: '15rem', xl: '17rem' }}
+                  w={{ base: '10rem', md: '14rem', lg: '15rem', xl: '20rem' }}
                   h={{
                      base: '15rem',
                      md: '15rem',
@@ -70,32 +63,60 @@ export default function getDates() {
                   }}
                   m={1}
                   p={1}
-                  flexShrink={1}
                   key={dates.id}
+                  flexDirection="column"
                >
-                  <Stack>
-                     <Heading size="md" alignSelf="center">
-                        {dates.name}
-                     </Heading>
-                     <List spacing={3} bgColor="whiteAlpha.300">
-                        <ListItem>
-                           <ListIcon as={PhoneIcon} />
-                           {dates.timeDate}
-                        </ListItem>
-                        <ListItem>
-                           <ListIcon as={PhoneIcon} />
-                           {dates.contact}
-                        </ListItem>
-                        <ListItem Spacing={2}>
-                           <ListIcon Icon={FoodIcon} />
-                           Activity:
-                           {dates.activity}
-                        </ListItem>
-                     </List>
-                     <label>Notes:</label>
-                     <p>{dates.notes}</p>
-                  </Stack>
-               </Stack>
+                  <Heading size="md" alignSelf="center">
+                     {dates.name}
+                  </Heading>
+                  {dates.repeat == true ? (
+                     <Badge colorScheme="green" alignSelf="center">
+                        Date again
+                     </Badge>
+                  ) : (
+                     <Badge colorScheme="red" alignSelf="center">
+                        Never Again
+                     </Badge>
+                  )}
+                  <List
+                     bgColor="whiteAlpha.400"
+                     borderRadius="md"
+                     w="100%"
+                     fontSize={{
+                        base: '10px',
+                        md: '12px',
+                        lg: '14px',
+                        xl: '16px',
+                     }}
+                  >
+                     <ListItem>
+                        <ListIcon as={PhoneIcon} />
+                        {dates.timeDate}
+                     </ListItem>
+                     <ListItem>
+                        <ListIcon as={PhoneIcon} />
+                        {dates.contact}
+                     </ListItem>
+                     <ListItem>
+                        <ListIcon as={FoodIcon} />
+                        {dates.activity}
+                     </ListItem>
+                     <ListItem Spacing={2}>
+                        <ListIcon as={FoodIcon} />
+                        {dates.locations}
+                     </ListItem>
+                  </List>
+                  <Text
+                     fontSize={{
+                        base: '10px',
+                        md: '12px',
+                        lg: '14px',
+                        xl: '16px',
+                     }}
+                  >
+                     {dates.notes}
+                  </Text>
+               </Flex>
             ))}
          </HStack>
       </>
