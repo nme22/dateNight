@@ -5,15 +5,14 @@ import {
    List,
    ListItem,
    ListIcon,
-   Stack,
    HStack,
    Badge,
    Text,
-   Flex,
-   Spacer,
+   Box,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { PhoneIcon, FoodIcon } from '@chakra-ui/react';
+import { FaGlobeAmericas } from 'react-icons/fa';
+import { CalendarIcon, PhoneIcon, InfoIcon } from '@chakra-ui/icons';
 import supabase from '@lib/supabase';
 
 export default function getDates() {
@@ -49,11 +48,12 @@ export default function getDates() {
             </Head>
 
             {dates.map((dates) => (
-               <Flex
+               <Box
+                  as="div"
                   bgGradient="linear(to-l, red.300, blue.400 )"
                   borderRadius="lg"
-                  flexWrap="wrap"
-                  justify="space-evenly"
+                  d="flex"
+                  flexDirection="column"
                   w={{ base: '10rem', md: '14rem', lg: '15rem', xl: '20rem' }}
                   h={{
                      base: '15rem',
@@ -61,10 +61,12 @@ export default function getDates() {
                      lg: '15rem',
                      xl: '20rem',
                   }}
+                  my={1}
                   m={1}
-                  p={1}
+                  p={2}
                   key={dates.id}
-                  flexDirection="column"
+                  opacity=".7"
+                  _hover={{ opacity: '1' }}
                >
                   <Heading
                      size="md"
@@ -87,6 +89,7 @@ export default function getDates() {
                         Never Again
                      </Badge>
                   )}
+
                   <List
                      bgColor="whiteAlpha.400"
                      borderRadius="md"
@@ -99,7 +102,7 @@ export default function getDates() {
                      }}
                   >
                      <ListItem>
-                        <ListIcon as={PhoneIcon} />
+                        <ListIcon as={CalendarIcon} />
                         {dates.timeDate}
                      </ListItem>
                      <ListItem>
@@ -107,14 +110,15 @@ export default function getDates() {
                         {dates.contact}
                      </ListItem>
                      <ListItem>
-                        <ListIcon as={FoodIcon} />
+                        <ListIcon as={InfoIcon} />
                         {dates.activity}
                      </ListItem>
-                     <ListItem spacing={2}>
-                        <ListIcon as={FoodIcon} />
+                     <ListItem>
+                        <ListIcon as={FaGlobeAmericas} />
                         {dates.locations}
                      </ListItem>
                   </List>
+
                   <Text
                      fontSize={{
                         base: '10px',
@@ -125,7 +129,7 @@ export default function getDates() {
                   >
                      {dates.notes}
                   </Text>
-               </Flex>
+               </Box>
             ))}
          </HStack>
       </>

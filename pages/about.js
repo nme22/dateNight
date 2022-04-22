@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { Heading, VStack, Text, Box } from '@chakra-ui/react';
+
+import { Heading, VStack, Text, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -17,7 +18,7 @@ const About = () => {
             <VStack
                justifyContent="center"
                fontFamily="Nunito"
-               fontSize="2xl"
+               fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
                p={8}
             >
                <Heading
@@ -27,19 +28,22 @@ const About = () => {
                >
                   About
                </Heading>
+               <motion.div>
+                  <Image src="/datingIMG.png" h="200px" w="200px" />
+               </motion.div>
 
                <Text
                   bgGradient="linear(to-r, red.300, blue.400 )"
                   bgClip="text"
-                  fontSize="3xl"
                   fontWeight="extrabold"
                >
-                  This application is designed to help the user keep track of
-                  their romantic endevours by creating a personal dating profile
-                  to help you remember your romantic progress! This application
-                  uses the Yelp API to help browse potential date ideas,
-                  coordinate a date night properly, and record the date to
-                  prevent your romance from becoming dry!
+                  This application is designed to help you keep track of your
+                  romantic endevours. DateNight does thisby creating a personal
+                  dating profile to help you remember your romantic progress!
+                  This application uses the Yelp API to help browse potential
+                  date ideas within the United States. Whether you're dating a
+                  significant other or persuing your soulmate; record the date
+                  to prevent your romantic life from becoming dry!
                </Text>
             </VStack>
          </motion.div>

@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 import { IconButton, colorMode, useColorMode, Box } from '@chakra-ui/react';
 
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const DateNavbar = () => {
-   const { toggleColorMode } = useColorMode();
+   const { colorMode, toggleColorMode } = useColorMode();
 
    return (
       <Box
@@ -23,7 +23,7 @@ const DateNavbar = () => {
          fontSize="sm"
       >
          <IconButton
-            icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
+            icon={colorMode === 'light' ? <FaSun /> : <FaMoon />}
             isRound="true"
             size="md"
             onClick={toggleColorMode}

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { VStack, Heading, Text, Button } from '@chakra-ui/react';
+import { VStack, Heading, Text, Button, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 export default function Home() {
@@ -16,6 +16,7 @@ export default function Home() {
                animate={{ opacity: 1 }}
                transition={{ duration: 3 }}
             >
+               <Image src="/datingIMG.png" h="200px" w="200px" />
                <Heading
                   fontSize={48}
                   textColor="palevioletred"
@@ -55,7 +56,7 @@ export default function Home() {
                <Text
                   fontFamily="Nunito"
                   pb="20"
-                  fontSize="2xl"
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
                   bgGradient="linear(to-r, red.300, blue.400 )"
                   bgClip="text"
                >
