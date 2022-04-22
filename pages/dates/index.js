@@ -110,7 +110,7 @@ export default function getDates() {
                         <ListIcon as={FoodIcon} />
                         {dates.activity}
                      </ListItem>
-                     <ListItem Spacing={2}>
+                     <ListItem spacing={2}>
                         <ListIcon as={FoodIcon} />
                         {dates.locations}
                      </ListItem>

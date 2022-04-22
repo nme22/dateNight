@@ -43,6 +43,13 @@ const FormDate = () => {
             },
          ])
          .single();
+      toast({
+         title: 'Date created.',
+         description: 'Added date to your previous dates',
+         status: 'success',
+         duration: 9000,
+         isClosable: true,
+      });
    }
 
    function handleSearchWhat() {
@@ -115,7 +122,7 @@ const FormDate = () => {
                   </Select>
 
                   <FormLabel color="palevioletred" fontWeight="bold">
-                     Where we're going:
+                     Pick a location in the United States
                   </FormLabel>
                   <Input
                      _focus={{
@@ -127,6 +134,7 @@ const FormDate = () => {
                      value={location}
                      onChange={handleLocationChange}
                      fontWeight="bold"
+                     isRequired="true"
                   />
                   <Button
                      d="block"
@@ -146,9 +154,17 @@ const FormDate = () => {
                   </Button>
 
                   {yelpData ? (
-                     <Select value={activity} onChange={handleActivityChange}>
+                     <Select
+                        value={activity}
+                        onChange={handleActivityChange}
+                        bg="palevioletred"
+                        borderColor="palevioletred"
+                        variant="outline"
+                        color="whiteAlpha.900"
+                        focusBorderColor="blue.300"
+                     >
                         {yelpData.data.businesses.map((business) => (
-                           <option>{business.name}</option>
+                           <option key={business.id}>{business.name}</option>
                         ))}
                      </Select>
                   ) : null}
@@ -227,32 +243,24 @@ const FormDate = () => {
                      onChange={handleNoteChange}
                      value={note}
                   />
-
-                  <Button
-                     d="block"
-                     w="150px"
-                     p="8px"
-                     m="30px"
-                     bg="palevioletred"
-                     borderradius="4px"
-                     color="white"
-                     text-align="center"
-                     _hover={{
-                        bg: 'turquoise',
-                     }}
-                     onClick={createDate}
-                     onSubmit={() =>
-                        toast({
-                           title: 'Date created.',
-                           description: "We've created your date for you.",
-                           status: 'success',
-                           duration: 9000,
-                           isClosable: true,
-                        })
-                     }
-                  >
-                     Create Your Date!
-                  </Button>
+                  {yelpData ? (
+                     <Button
+                        d="block"
+                        w="150px"
+                        p="8px"
+                        m="30px"
+                        bg="palevioletred"
+                        borderradius="4px"
+                        color="white"
+                        text-align="center"
+                        _hover={{
+                           bg: 'turquoise',
+                        }}
+                        onClick={createDate}
+                     >
+                        Create Your Date!
+                     </Button>
+                  ) : null}
                </FormControl>
             </div>
          </VStack>
