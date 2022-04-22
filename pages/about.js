@@ -21,6 +21,9 @@ const About = () => {
                fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
                p={8}
             >
+               <motion.div>
+                  <Image src="/datingIMG.png" h="200px" w="200px" />
+               </motion.div>
                <Heading
                   p="20px"
                   bgGradient="linear(to-r, red.300, blue.400 )"
@@ -28,9 +31,6 @@ const About = () => {
                >
                   About
                </Heading>
-               <motion.div>
-                  <Image src="/datingIMG.png" h="200px" w="200px" />
-               </motion.div>
 
                <Text
                   bgGradient="linear(to-r, red.300, blue.400 )"

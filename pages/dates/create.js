@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import {
    Button,
    Divider,
@@ -53,13 +54,24 @@ const FormDate = () => {
    }
 
    function handleSearchWhat() {
-      fetch('/api/events', {
-         method: 'POST',
-         body: JSON.stringify({ what, location }),
-      })
-         .then((response) => response.json())
-         .then((data) => setYelpData(data));
-      console.log(yelpData);
+      try {
+         fetch('/api/events', {
+            method: 'POST',
+            body: JSON.stringify({ what, location }),
+         })
+            .then((response) => response.json())
+            .then((data) => setYelpData(data));
+         // console.log(yelpData);
+         toast({
+            title: 'Potential Date Ideas',
+            description: 'Browse around the area ',
+            status: 'info',
+            duration: 9000,
+            isClosable: true,
+         });
+      } catch (error) {
+         console.error(error);
+      }
    }
 
    function handleLocationChange(e) {
@@ -244,22 +256,24 @@ const FormDate = () => {
                      value={note}
                   />
                   {yelpData ? (
-                     <Button
-                        d="block"
-                        w="150px"
-                        p="8px"
-                        m="30px"
-                        bg="palevioletred"
-                        borderradius="4px"
-                        color="white"
-                        text-align="center"
-                        _hover={{
-                           bg: 'turquoise',
-                        }}
-                        onClick={createDate}
-                     >
-                        Create Your Date!
-                     </Button>
+                     <Link href="/dates">
+                        <Button
+                           d="block"
+                           w="150px"
+                           p="8px"
+                           m="30px"
+                           bg="palevioletred"
+                           borderradius="4px"
+                           color="white"
+                           text-align="center"
+                           _hover={{
+                              bg: 'turquoise',
+                           }}
+                           onClick={createDate}
+                        >
+                           Create Your Date!
+                        </Button>
+                     </Link>
                   ) : null}
                </FormControl>
             </div>

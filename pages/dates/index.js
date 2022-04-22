@@ -9,6 +9,7 @@ import {
    Badge,
    Text,
    Box,
+   Flex,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { FaGlobeAmericas } from 'react-icons/fa';
@@ -41,7 +42,7 @@ export default function getDates() {
             All Dates
          </Heading>
          <Divider />
-         <HStack flexWrap="wrap">
+         <Flex flexWrap="wrap" justifyContent="center">
             <Head>
                <title>DateNight | Previous Dates</title>
                <meta name="keywords" content="DateNight" />
@@ -67,6 +68,7 @@ export default function getDates() {
                   key={dates.id}
                   opacity=".7"
                   _hover={{ opacity: '1' }}
+                  fontFamily="Nunito"
                >
                   <Heading
                      size="md"
@@ -118,7 +120,7 @@ export default function getDates() {
                         {dates.locations}
                      </ListItem>
                   </List>
-
+                  <label>Notes:</label>
                   <Text
                      fontSize={{
                         base: '10px',
@@ -131,7 +133,7 @@ export default function getDates() {
                   </Text>
                </Box>
             ))}
-         </HStack>
+         </Flex>
       </>
    );
 }
