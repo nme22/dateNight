@@ -5,7 +5,6 @@ import {
    List,
    ListItem,
    ListIcon,
-   HStack,
    Badge,
    Text,
    Box,
@@ -68,6 +67,7 @@ export default function getDates() {
                   key={dates.id}
                   opacity=".7"
                   _hover={{ opacity: '1' }}
+                  cursor="grabbing"
                   fontFamily="Nunito"
                >
                   <Heading
@@ -91,11 +91,12 @@ export default function getDates() {
                         Never Again
                      </Badge>
                   )}
-
+                  <br />
                   <List
                      bgColor="whiteAlpha.400"
                      borderRadius="md"
                      w="100%"
+                     p={2}
                      fontSize={{
                         base: '10px',
                         md: '12px',
@@ -120,7 +121,6 @@ export default function getDates() {
                         {dates.locations}
                      </ListItem>
                   </List>
-                  <label>Notes:</label>
                   <Text
                      fontSize={{
                         base: '10px',
@@ -128,6 +128,18 @@ export default function getDates() {
                         lg: '14px',
                         xl: '16px',
                      }}
+                  >
+                     Notes:
+                  </Text>
+                  <Text
+                     fontSize={{
+                        base: '10px',
+                        md: '12px',
+                        lg: '14px',
+                        xl: '16px',
+                     }}
+                     w="fit-content"
+                     fontFamily="Nunito"
                   >
                      {dates.notes}
                   </Text>

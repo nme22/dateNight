@@ -5,6 +5,8 @@ import {
    Divider,
    FormControl,
    FormLabel,
+   FormHelperText,
+   FormErrorMessage,
    Input,
    VStack,
    Heading,
@@ -25,6 +27,7 @@ const FormDate = () => {
    const [again, setAgain] = useState('true');
    const [note, setNote] = useState('');
    const [activity, setActivity] = useState('');
+   const isError = location === '';
 
    const [yelpData, setYelpData] = useState();
 
@@ -70,7 +73,13 @@ const FormDate = () => {
             isClosable: true,
          });
       } catch (error) {
-         console.error(error);
+         toast({
+            title: 'Something went wrong',
+            description: 'Area  is not supported by API',
+            status: 'error',
+            duration: 9000,
+            isClosable: true,
+         });
       }
    }
 
@@ -115,55 +124,66 @@ const FormDate = () => {
             <Divider />
             <div>
                <FormControl>
-                  <FormLabel color="palevioletred" fontWeight="bold">
-                     What activity are we doing?:
-                  </FormLabel>
-                  <Select
-                     _focus={{
-                        borderColor: 'Pink',
-                     }}
-                     required
-                     textAlign="center"
-                     fontWeight="bold"
-                     onChange={handleWhatChange}
-                     value={what}
-                  >
-                     <option value="Food">Food</option>
-                     <option value="Entertainment">Entertainment</option>
-                     <option value="Romance">Romance</option>
-                  </Select>
+                  <FormControl isRequired>
+                     <FormLabel color="palevioletred" fontWeight="bold">
+                        What activity are we doing?:
+                     </FormLabel>
+                     <Select
+                        _focus={{
+                           borderColor: 'Pink',
+                        }}
+                        required
+                        textAlign="center"
+                        fontWeight="bold"
+                        onChange={handleWhatChange}
+                        value={what}
+                     >
+                        <option value="Food">Food</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Romance">Romance</option>
+                     </Select>
 
-                  <FormLabel color="palevioletred" fontWeight="bold">
-                     Pick a location in the United States
-                  </FormLabel>
-                  <Input
-                     _focus={{
-                        borderColor: 'Pink',
-                     }}
-                     type="text"
-                     required
-                     placeholder="Location"
-                     value={location}
-                     onChange={handleLocationChange}
-                     fontWeight="bold"
-                     isRequired="true"
-                  />
-                  <Button
-                     d="block"
-                     w="150px"
-                     p="8px"
-                     m="30px"
-                     bg="palevioletred"
-                     borderradius="4px"
-                     color="white"
-                     text-align="center"
-                     _hover={{
-                        bg: 'turquoise',
-                     }}
-                     onClick={handleSearchWhat}
-                  >
-                     See whats around!
-                  </Button>
+                     <FormLabel color="palevioletred" fontWeight="bold">
+                        Enter an address, City, State, or Zip Code
+                     </FormLabel>
+                     <Input
+                        _focus={{
+                           borderColor: 'Pink',
+                        }}
+                        type="text"
+                        required
+                        placeholder="Location"
+                        value={location}
+                        onChange={handleLocationChange}
+                        fontWeight="bold"
+                        isRequired="true"
+                     />
+                     {!isError ? (
+                        <FormHelperText>
+                           Limited to areas in the United States
+                           <Button
+                              d="block"
+                              w="150px"
+                              p="8px"
+                              m="30px"
+                              bg="palevioletred"
+                              borderradius="4px"
+                              color="white"
+                              text-align="center"
+                              _hover={{
+                                 bg: 'turquoise',
+                              }}
+                              onClick={handleSearchWhat}
+                           >
+                              See whats around!
+                           </Button>
+                        </FormHelperText>
+                     ) : (
+                        <FormErrorMessage>
+                           Area is not supported by API
+                        </FormErrorMessage>
+                     )}
+                  </FormControl>
 
                   {yelpData ? (
                      <Select
