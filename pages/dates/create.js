@@ -64,7 +64,7 @@ const FormDate = () => {
          })
             .then((response) => response.json())
             .then((data) => setYelpData(data));
-         // console.log(yelpData);
+         console.log(yelpData);
          toast({
             title: 'Potential Date Ideas',
             description: 'Browse around the area ',
@@ -132,7 +132,6 @@ const FormDate = () => {
                         _focus={{
                            borderColor: 'Pink',
                         }}
-                        required
                         textAlign="center"
                         fontWeight="bold"
                         onChange={handleWhatChange}
@@ -151,16 +150,14 @@ const FormDate = () => {
                            borderColor: 'Pink',
                         }}
                         type="text"
-                        required
                         placeholder="Location"
                         value={location}
                         onChange={handleLocationChange}
                         fontWeight="bold"
-                        isRequired="true"
                      />
                      {!isError ? (
-                        <FormHelperText>
-                           Limited to areas in the United States
+                        <FormHelperText color="red">
+                           * Limited to areas in the United States *
                            <Button
                               d="block"
                               w="150px"
@@ -178,14 +175,10 @@ const FormDate = () => {
                               See whats around!
                            </Button>
                         </FormHelperText>
-                     ) : (
-                        <FormErrorMessage>
-                           Area is not supported by API
-                        </FormErrorMessage>
-                     )}
+                     ) : null}
                   </FormControl>
 
-                  {yelpData ? (
+                  {yelpData?.data.businesses ? (
                      <Select
                         value={activity}
                         onChange={handleActivityChange}

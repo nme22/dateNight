@@ -12,12 +12,10 @@ export default async function handler(req, res) {
             },
          }
       );
-
       const data = await response.json();
       res.send({ data });
-      res.status(200).json({ data });
-      res.status(200).send({ data });
    } catch (error) {
+      console.log('its nav and im showing up');
       res.status(500).json({ error: 'failed to load' });
       res.status(500).send({ error: 'API does not support request' });
    }
