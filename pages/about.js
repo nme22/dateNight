@@ -22,7 +22,12 @@ const About = () => {
                p={8}
             >
                <motion.div>
-                  <Image src="/datingIMG.png" h="200px" w="200px" />
+                  <Image
+                     src="/datingIMG.png"
+                     h="200px"
+                     w="200px"
+                     alt="image with a heart"
+                  />
                </motion.div>
                <Heading
                   p="20px"

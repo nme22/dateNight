@@ -1,9 +1,19 @@
 import Head from 'next/head';
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { supabase } from '@utils/supabaseClient';
+import Auth from '@components/Auth';
+import Account from '@components/Account';
 import { VStack, Heading, Text, Button, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 export default function Home() {
+   const [session, setSession] = useState(null);
+   useEffect(() => {
+      setSession(supabase.auth.session());
+      supabase.auth.onAuthStateChange((_event, session) => {
+         setSession(session);
+      });
+   }, []);
    return (
       <>
          <Head>
@@ -16,7 +26,12 @@ export default function Home() {
                animate={{ opacity: 1 }}
                transition={{ duration: 3 }}
             >
-               <Image src="/datingIMG.png" h="200px" w="200px" />
+               <Image
+                  src="/datingIMG.png"
+                  h="200px"
+                  w="200px"
+                  alt="image with a heart"
+               />
                <Heading
                   fontSize={48}
                   textColor="palevioletred"
@@ -65,23 +80,30 @@ export default function Home() {
                   experience!{' '}
                </Text>
             </motion.div>
-            <Link href="/about">
-               <Button
-                  d="block"
-                  w="150px"
-                  p="8px"
-                  m="30px"
-                  bg="palevioletred"
-                  borderradius="4px"
-                  color="white"
-                  text-align="center"
-                  _hover={{
-                     bg: 'turquoise',
-                  }}
-               >
-                  About DateNight
-               </Button>
-            </Link>
+
+            <div>
+               {!session ? (
+                  <Auth />
+               ) : (
+                  <Account key={session.user.id} session={session} />
+               )}
+            </div>
+
+            {/* <Button
+               d="block"
+               w="150px"
+               p="8px"
+               m="30px"
+               bg="palevioletred"
+               borderradius="4px"
+               color="white"
+               text-align="center"
+               _hover={{
+                  bg: 'turquoise',
+               }}
+            >
+               Sign In
+            </Button> */}
          </VStack>
       </>
    );
