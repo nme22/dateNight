@@ -1,19 +1,10 @@
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
-import { supabase } from '@utils/supabaseClient';
-import Auth from '@components/Auth';
-import Account from '@components/Account';
+import Link from 'next/link';
+
 import { VStack, Heading, Text, Button, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 export default function Home() {
-   const [session, setSession] = useState(null);
-   useEffect(() => {
-      setSession(supabase.auth.session());
-      supabase.auth.onAuthStateChange((_event, session) => {
-         setSession(session);
-      });
-   }, []);
    return (
       <>
          <Head>
@@ -80,30 +71,23 @@ export default function Home() {
                   experience!{' '}
                </Text>
             </motion.div>
-
-            <div>
-               {!session ? (
-                  <Auth />
-               ) : (
-                  <Account key={session.user.id} session={session} />
-               )}
-            </div>
-
-            {/* <Button
-               d="block"
-               w="150px"
-               p="8px"
-               m="30px"
-               bg="palevioletred"
-               borderradius="4px"
-               color="white"
-               text-align="center"
-               _hover={{
-                  bg: 'turquoise',
-               }}
-            >
-               Sign In
-            </Button> */}
+            <Link href="/login">
+               <Button
+                  d="block"
+                  w="150px"
+                  p="8px"
+                  m="30px"
+                  bg="palevioletred"
+                  borderradius="4px"
+                  color="white"
+                  text-align="center"
+                  _hover={{
+                     bg: 'turquoise',
+                  }}
+               >
+                  login
+               </Button>
+            </Link>
          </VStack>
       </>
    );
