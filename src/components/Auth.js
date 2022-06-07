@@ -25,19 +25,6 @@ export default function Auth() {
       const { error } = await supabase.auth.signOut();
    }
 
-   //    const handleLogin = async (email) => {
-   //       try {
-   //          setLoading(true);
-   //          const { error } = await supabase.auth.signIn({ email, password });
-   //          if (error) throw error;
-   //          alert('Check your email for the login link!');
-   //       } catch (error) {
-   //          alert(error.error_description || error.message);
-   //       } finally {
-   //          setLoading(false);
-   //       }
-   //    };
-
    return (
       <VStack
          fontFamily="Nunito"

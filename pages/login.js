@@ -14,13 +14,17 @@ export default function Login() {
    }, []);
    return (
       <>
-         <div>
+         <VStack
+            fontFamily="Nunito"
+            justifyContent="space-around"
+            fontWeight="bold"
+         >
             {!session ? (
                <Auth />
             ) : (
                <Account key={session.user.id} session={session} />
             )}
-         </div>
+         </VStack>
       </>
    );
 }

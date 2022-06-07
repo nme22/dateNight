@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../utils/supabaseClient';
+import { Container, Button, Input, Label } from '@chakra-ui/react';
 
 export default function Account({ session }) {
    const [loading, setLoading] = useState(true);
@@ -20,21 +21,32 @@ export default function Account({ session }) {
    }
 
    return (
-      <div className="form-widget">
-         <div>
-            <label htmlFor="email">Email</label>
+      <Container>
+         <Label htmlFor="email">Welcome back {session.user.email}</Label>
 
-            <input id="email" type="text" value={session.user.email} disabled />
-         </div>
+         <Input
+            id="email"
+            type="text"
+            value={session.user.email}
+            disabled
+            bg="palevioletred"
+         />
 
-         <div>
-            <button
-               className="button block"
-               onClick={() => supabase.auth.signOut()}
-            >
-               Sign Out
-            </button>
-         </div>
-      </div>
+         <Button
+            d="block"
+            w="150px"
+            p="8px"
+            m="30px"
+            bg="palevioletred"
+            borderradius="4px"
+            color="white"
+            text-align="center"
+            _hover={{
+               bg: 'turquoise',
+            }}
+         >
+            {loading ? 'Signing out ...' : 'Sign Out'}
+         </Button>
+      </Container>
    );
 }
