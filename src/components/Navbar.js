@@ -1,12 +1,19 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { supabase } from '@utils/supabaseClient';
 import { IconButton, colorMode, useColorMode, Box } from '@chakra-ui/react';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
 const DateNavbar = () => {
    const { colorMode, toggleColorMode } = useColorMode();
    const [session, setSession] = useState(null);
-   if (session !== null) {
+   useEffect(() => {
+      setSession(supabase.auth.session());
+      supabase.auth.onAuthStateChange((_event, session) => {
+         setSession(session);
+      });
+   }, []);
+   if (session) {
       return (
          <Box
             h={{ base: '100%', md: '100%', lg: '100%' }}

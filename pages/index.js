@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-
 import { VStack, Heading, Text, Button, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
@@ -85,7 +84,7 @@ export default function Home() {
                      bg: 'turquoise',
                   }}
                >
-                  login
+                  Login
                </Button>
             </Link>
          </VStack>

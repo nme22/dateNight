@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../utils/supabaseClient';
-import { Container, Button, Input, Label } from '@chakra-ui/react';
+import { supabase } from '@utils/supabaseClient';
+import { Container, Button, FormLabel } from '@chakra-ui/react';
 
 export default function Account({ session }) {
    const [loading, setLoading] = useState(true);
@@ -19,18 +19,15 @@ export default function Account({ session }) {
          setLoading(false);
       }
    }
+   async function signOut() {
+      const { error } = await supabase.auth.signOut();
+   }
 
    return (
-      <Container>
-         <Label htmlFor="email">Welcome back {session.user.email}</Label>
-
-         <Input
-            id="email"
-            type="text"
-            value={session.user.email}
-            disabled
-            bg="palevioletred"
-         />
+      <Container as="div">
+         <FormLabel htmlFor="email" color="palevioletred">
+            Welcome back {session.user.email}!
+         </FormLabel>
 
          <Button
             d="block"
@@ -41,6 +38,7 @@ export default function Account({ session }) {
             borderradius="4px"
             color="white"
             text-align="center"
+            onClick={signOut}
             _hover={{
                bg: 'turquoise',
             }}
